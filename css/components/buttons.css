@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Buttons — Dark theme with sage + gold
+   ========================================================================== */
+
+/* ---- Base Button ---- */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine sweep on hover — uses transform for GPU-accelerated animation */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: translateX(-170%);
+  transition: transform 0.6s var(--ease-out);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.btn:hover::after {
+  transform: translateX(280%);
+}
+
+/* ---- Primary: Gold ---- */
+.btn--primary {
+  background-color: var(--color-gold);
+  color: var(--color-bg-deep);
+  border-color: var(--color-gold);
+}
+
+.btn--primary:hover {
+  background-color: #E0BC5A;
+  border-color: #E0BC5A;
+  color: var(--color-bg-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px var(--color-gold-glow),
+              0 2px 8px rgba(212, 168, 67, 0.2),
+              0 0 20px rgba(212, 168, 67, 0.1);
+}
+
+.btn--primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--color-gold-glow);
+}
+
+/* ---- Outline: White border ---- */
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-bg-deep);
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.12),
+              0 2px 8px rgba(255, 255, 255, 0.06);
+}
+
+.btn--outline:active {
+  transform: translateY(-1px);
+}
+
+/* ---- Sage: Green button ---- */
+.btn--sage {
+  background-color: var(--color-sage);
+  color: var(--color-white);
+  border-color: var(--color-sage);
+}
+
+.btn--sage:hover {
+  background-color: var(--color-sage-light);
+  border-color: var(--color-sage-light);
+  color: var(--color-bg-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(107, 143, 113, 0.35),
+              0 2px 8px rgba(107, 143, 113, 0.2),
+              0 0 20px rgba(107, 143, 113, 0.1);
+}
+
+.btn--sage:active {
+  transform: translateY(-1px);
+}
+
+/* ---- Large Variant ---- */
+.btn--large {
+  padding: 18px 48px;
+  font-size: 0.95rem;
+}
+
+/* ---- Full Width ---- */
+.btn--full {
+  width: 100%;
+}
+
+/* ---- Focus Visible ---- */
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+
+  .btn--large {
+    padding: 16px 36px;
+    font-size: 0.92rem;
+  }
+}

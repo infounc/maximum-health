@@ -1,0 +1,170 @@
+/* ==========================================================================
+   CTA Banners — Full-width stacked cards
+   ========================================================================== */
+
+.cta-banners__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- Single Banner ---- */
+.cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 56px;
+  border-radius: var(--card-radius);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left accent bar */
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 3px;
+  height: 60%;
+  border-radius: 0 3px 3px 0;
+  transition: var(--transition), height var(--duration) var(--ease-out), top var(--duration) var(--ease-out);
+}
+
+/* Gutschein banner */
+.cta-banner--gutschein {
+  background-color: var(--color-bg-card);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+}
+
+.cta-banner--gutschein::before {
+  background: var(--color-sage);
+}
+
+/* Sparpaket banner */
+.cta-banner--sparpaket {
+  background-color: var(--color-bg-card);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+}
+
+.cta-banner--sparpaket::before {
+  background: var(--color-gold);
+}
+
+/* Hover */
+.cta-banner:hover {
+  transform: translateY(-8px);
+  background-color: var(--color-bg-card-hover);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(107, 143, 113, 0.15);
+  border-color: transparent;
+}
+
+.cta-banner:hover::before {
+  height: 80%;
+  top: 10%;
+}
+
+.cta-banner--gutschein:hover::before {
+  background: var(--color-gold);
+}
+
+/* ---- Label ---- */
+.cta-banner__label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.cta-banner--gutschein .cta-banner__label {
+  color: var(--color-sage-light);
+}
+
+.cta-banner--sparpaket .cta-banner__label {
+  color: var(--color-gold);
+}
+
+/* ---- Text ---- */
+.cta-banner__text {
+  flex: 1;
+}
+
+.cta-banner__title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+  transition: var(--transition-fast);
+}
+
+.cta-banner:hover .cta-banner__title {
+  background: radial-gradient(ellipse at 50% 40%, #E0BC5A 0%, var(--color-gold) 60%, var(--color-gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-banner__subtitle {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+/* ---- Button ---- */
+.cta-banner .btn {
+  flex-shrink: 0;
+  margin-left: 40px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .cta-banner {
+    padding: 40px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .cta-banner__title {
+    font-size: 1.5rem;
+  }
+
+  .cta-banner .btn {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-banner {
+    padding: 32px 24px;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-banner__title {
+    font-size: 1.3rem;
+  }
+
+  .cta-banner__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .cta-banner .btn {
+    align-self: center;
+  }
+}

@@ -1,0 +1,689 @@
+/* ==========================================================================
+   Spirit Section — Immersive, cinematic layout with wow-factor
+   ========================================================================== */
+
+/* ---- Section-level atmosphere ---- */
+#spirit {
+  overflow: clip;
+  overflow-clip-margin: 20px;
+}
+
+/* Large ambient glow behind the entire section */
+#spirit::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, rgba(107, 143, 113, 0.04) 40%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: spiritAmbient 12s ease-in-out infinite alternate;
+}
+
+@keyframes spiritAmbient {
+  0%   { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  100% { opacity: 1;   transform: translateX(-50%) scale(1.15) translateY(40px); }
+}
+
+/* ---- Hero: Large centered statement ---- */
+.spirit__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 96px;
+  position: relative;
+  z-index: 1;
+}
+
+.spirit__hero-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 32px;
+  padding: 8px 28px;
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 100px;
+  position: relative;
+}
+
+/* Subtle animated glow on the label pill */
+.spirit__hero-label::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(212, 168, 67, 0.15), transparent 50%, rgba(107, 143, 113, 0.15));
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+  z-index: -1;
+}
+
+.spirit__hero:hover .spirit__hero-label::before {
+  opacity: 1;
+}
+
+/* ---- Title: Dramatic oversized with shimmer ---- */
+.spirit__hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 14vw, 10rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: 40px;
+  padding: 8px 20px;
+  position: relative;
+}
+
+.spirit__hero-title em {
+  font-style: italic;
+  background: linear-gradient(
+    135deg,
+    var(--color-gold-deep) 0%,
+    #E0BC5A 25%,
+    #F5DFA0 50%,
+    #E0BC5A 75%,
+    var(--color-gold-deep) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: spiritShimmer 6s ease-in-out infinite;
+}
+
+@keyframes spiritShimmer {
+  0%   { background-position: 100% 50%; }
+  50%  { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Glow ring behind the title */
+.spirit__hero-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 168, 67, 0.08);
+  pointer-events: none;
+  animation: spiritRing 20s linear infinite;
+}
+
+/* Second ring — offset rotation */
+.spirit__hero-title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1px solid rgba(107, 143, 113, 0.06);
+  pointer-events: none;
+  animation: spiritRing 30s linear infinite reverse;
+}
+
+@keyframes spiritRing {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); border-color: rgba(212, 168, 67, 0.08); }
+  50%  { border-color: rgba(107, 143, 113, 0.12); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); border-color: rgba(212, 168, 67, 0.08); }
+}
+
+.spirit__hero-text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  max-width: var(--container-text);
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Features: 3-column grid with staggered reveal ---- */
+.spirit__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.spirit__feature {
+  background-color: var(--color-bg-card);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+  border-radius: var(--card-radius);
+  padding: 40px 28px 36px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Subtle top-edge glow on hover */
+.spirit__feature::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 80px;
+  background: radial-gradient(ellipse at center top, rgba(212, 168, 67, 0.07) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease-out);
+  pointer-events: none;
+}
+
+.spirit__feature:hover::after {
+  opacity: 1;
+}
+
+/* ---- Icon container ---- */
+.spirit__feature-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(212, 168, 67, 0.06);
+  border: 1px solid rgba(212, 168, 67, 0.1);
+  color: var(--color-gold);
+  margin-bottom: 24px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.spirit__feature-icon svg {
+  width: 28px;
+  height: 28px;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.spirit__feature:hover .spirit__feature-icon {
+  background: rgba(212, 168, 67, 0.12);
+  border-color: rgba(212, 168, 67, 0.25);
+  box-shadow: 0 0 28px rgba(212, 168, 67, 0.12);
+  transform: translateY(-4px);
+}
+
+.spirit__feature:hover .spirit__feature-icon svg {
+  transform: scale(1.1);
+}
+
+.spirit__feature:hover {
+  background-color: var(--color-bg-card-hover);
+  border-color: rgba(212, 168, 67, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(212, 168, 67, 0.06);
+}
+
+.spirit__feature-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  transition: var(--transition-fast);
+}
+
+.spirit__feature:hover .spirit__feature-title {
+  background: radial-gradient(ellipse at 50% 40%, #F5DFA0 0%, var(--color-gold) 50%, var(--color-gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spirit__feature-text {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   CTA — Starts as dark card, glows and gilts on reveal
+   Soft radiance, sparkle shimmer, no hard edges
+   ========================================================================== */
+
+/* ---- Default state: dark card ---- */
+.spirit__cta {
+  background: var(--color-bg-card);
+  border-radius: var(--card-radius-lg);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+  transition:
+    border-color 2.5s ease 0.8s,
+    box-shadow 3s ease 0.6s,
+    transform var(--duration) var(--ease-out);
+}
+
+/* Gold gradient — fades in softly */
+.spirit__cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, #B8923A 0%, #C49B38 20%, #D4A843 40%, #E0BC5A 60%, #D4A843 80%, #B8923A 100%);
+  opacity: 0;
+  transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Shimmer sparkle — moving gradient that creates a traveling glow */
+.spirit__cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120px 80px at 20% 50%, rgba(255, 255, 255, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 80px 60px at 60% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 100px 70px at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+}
+
+/* ---- REVEALED: soft gilding ---- */
+.spirit__cta.reveal--visible {
+  border-color: rgba(212, 168, 67, 0.15);
+  box-shadow:
+    0 8px 40px rgba(184, 146, 58, 0.1),
+    0 2px 12px rgba(0, 0, 0, 0.2),
+    0 0 80px rgba(212, 168, 67, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Gold fades in */
+.spirit__cta.reveal--visible::before {
+  opacity: 1;
+}
+
+/* Sparkle particles drift across */
+.spirit__cta.reveal--visible::after {
+  animation: ctaSparkle 4s ease-in-out 1.5s forwards;
+}
+
+@keyframes ctaSparkle {
+  0%   { opacity: 0; background-position: 0% 50%, 0% 50%, 0% 50%; }
+  15%  { opacity: 0.6; }
+  40%  { opacity: 1; }
+  70%  { opacity: 0.5; }
+  100% { opacity: 0; background-position: 100% 20%, 120% 80%, 110% 40%; }
+}
+
+/* Outer glow breathes in after gilding */
+.spirit__cta.reveal--visible {
+  animation: ctaGlowBreathe 4s ease-in-out 2.5s both;
+}
+
+@keyframes ctaGlowBreathe {
+  0%   { box-shadow: 0 8px 40px rgba(184, 146, 58, 0.1), 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 0px rgba(212, 168, 67, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+  40%  { box-shadow: 0 12px 48px rgba(184, 146, 58, 0.16), 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 100px rgba(212, 168, 67, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+  100% { box-shadow: 0 8px 40px rgba(184, 146, 58, 0.12), 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 60px rgba(212, 168, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+}
+
+/* Hover */
+.spirit__cta.reveal--visible:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 28px 72px rgba(184, 146, 58, 0.18),
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 80px rgba(212, 168, 67, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ---- Inner layout ---- */
+.spirit__cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 56px 60px;
+  position: relative;
+  z-index: 2;
+  gap: 40px;
+}
+
+/* ---- Left: text content ---- */
+.spirit__cta-left {
+  flex: 1;
+}
+
+.spirit__cta-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 14px;
+  display: block;
+  transition: color 2s ease 1.0s;
+}
+
+.spirit__cta.reveal--visible .spirit__cta-label {
+  color: rgba(14, 22, 16, 0.4);
+}
+
+.spirit__cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  transition: color 2s ease 1.2s;
+}
+
+.spirit__cta.reveal--visible .spirit__cta-title {
+  color: var(--color-bg-deep);
+}
+
+.spirit__cta-sub {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 380px;
+  transition: color 2s ease 1.4s;
+}
+
+.spirit__cta.reveal--visible .spirit__cta-sub {
+  color: rgba(14, 22, 16, 0.5);
+}
+
+/* ---- Right: price + CTA ---- */
+.spirit__cta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* Price display */
+.spirit__price {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 16px 28px;
+  background: rgba(107, 143, 113, 0.08);
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+  transition:
+    background 2s ease 1.2s,
+    border-color 2s ease 1.2s;
+}
+
+.spirit__cta.reveal--visible .spirit__price {
+  background: rgba(14, 22, 16, 0.1);
+  border-color: rgba(14, 22, 16, 0.06);
+}
+
+.spirit__price-amount {
+  font-family: var(--font-display);
+  font-size: 3.8rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  transition: color 2s ease 1.2s;
+}
+
+.spirit__cta.reveal--visible .spirit__price-amount {
+  color: var(--color-bg-deep);
+}
+
+.spirit__price-meta {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+}
+
+.spirit__price-currency {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  line-height: 1;
+  transition: color 2s ease 1.2s;
+}
+
+.spirit__cta.reveal--visible .spirit__price-currency {
+  color: var(--color-bg-deep);
+}
+
+.spirit__price-duration {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dim);
+  margin-top: 2px;
+  white-space: nowrap;
+  transition: color 2s ease 1.4s;
+}
+
+.spirit__cta.reveal--visible .spirit__price-duration {
+  color: rgba(14, 22, 16, 0.4);
+}
+
+/* ---- Button ---- */
+.spirit__cta .btn--primary {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-bg-deep);
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  transition:
+    background-color 2s ease 1.6s,
+    border-color 2s ease 1.6s,
+    color 2s ease 1.6s,
+    transform var(--duration) var(--ease-out),
+    box-shadow var(--duration) var(--ease-out);
+}
+
+.spirit__cta.reveal--visible .btn--primary {
+  background-color: var(--color-bg-deep);
+  border-color: var(--color-bg-deep);
+  color: var(--color-gold);
+}
+
+.spirit__cta .btn--primary:hover {
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  color: #E0BC5A;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+  transition:
+    background-color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out),
+    color var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out),
+    box-shadow var(--duration) var(--ease-out);
+}
+
+.spirit__cta .btn--primary::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 168, 67, 0.2),
+    transparent
+  );
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1150px) {
+  .spirit__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spirit__hero-title::before {
+    width: 260px;
+    height: 260px;
+  }
+
+  .spirit__hero-title::after {
+    width: 360px;
+    height: 360px;
+  }
+
+  #spirit::after {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .spirit__hero {
+    margin-bottom: 56px;
+  }
+
+  .spirit__hero-title {
+    font-size: clamp(4rem, 14vw, 6rem);
+  }
+
+  .spirit__hero-title::before,
+  .spirit__hero-title::after {
+    display: none;
+  }
+
+  .spirit__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .spirit__feature {
+    padding: 28px 20px;
+  }
+
+  .spirit__feature-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+  }
+
+  .spirit__feature-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .spirit__cta-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+    padding: 44px 28px;
+  }
+
+  .spirit__cta-sub {
+    max-width: none;
+  }
+
+  .spirit__cta-title br {
+    display: none;
+  }
+
+  .spirit__cta-right {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .spirit__price {
+    justify-content: center;
+  }
+
+  .spirit__price-amount {
+    font-size: 3.2rem;
+  }
+
+  #spirit::after {
+    width: 400px;
+    height: 400px;
+    top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .spirit__features {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spirit__cta-inner {
+    padding: 36px 20px;
+    gap: 28px;
+  }
+
+  .spirit__price-amount {
+    font-size: 2.8rem;
+  }
+
+  .spirit__cta-right {
+    max-width: 280px;
+  }
+
+  #spirit::after {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spirit__hero-title em {
+    animation: none;
+  }
+
+  .spirit__hero-title::before,
+  .spirit__hero-title::after {
+    animation: none;
+  }
+
+  .spirit__cta,
+  .spirit__cta.reveal--visible {
+    animation: none !important;
+  }
+
+  .spirit__cta.reveal--visible::after {
+    animation: none !important;
+    opacity: 0;
+  }
+
+  #spirit::after {
+    animation: none;
+  }
+}

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maximum Health — Therapiepraxis Maximilian Mix</title>
+  <meta name="description" content="Therapiepraxis für Manuelle Gelenktherapie, Schröpftherapie, Tiefenmuskulaturtherapie und mehr in Bönningstedt bei Hamburg.">
+  <!-- SHARED:HEAD-CSS:START -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="stylesheet" href="css/components/cookie-banner.css">
+  <!-- SHARED:HEAD-CSS:END -->
+  <link rel="stylesheet" href="css/components/hero.css">
+  <script>
+    // Lock viewport height as CSS custom property BEFORE first paint
+    // Prevents mobile hero jump from address bar resize
+    (function(){
+      if(window.matchMedia('(max-width:768px)').matches){
+        document.documentElement.style.setProperty('--hero-h',window.innerHeight+'px');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/components/therapies.css">
+  <link rel="stylesheet" href="css/components/profile.css">
+  <link rel="stylesheet" href="css/components/pricing-cards.css">
+  <link rel="stylesheet" href="css/components/coaching.css">
+  <link rel="stylesheet" href="css/components/spirit.css">
+  <link rel="stylesheet" href="css/components/reviews.css">
+  <link rel="stylesheet" href="css/components/cta-banners.css">
+  <link rel="stylesheet" href="css/components/contact.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+</head>
+<body>
+
+  <!-- SHARED:NAV:START -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__logo">
+        <img src="images/logo-white.png" alt="Maximum Health Logo">
+      </a>
+      <ul class="navbar__links">
+        <li><a href="#therapien">Therapien</a></li>
+        <li><a href="#ueber-uns">Über Uns</a></li>
+        <li><a href="#preise" class="btn btn--primary btn--nav">Termin buchen</a></li>
+      </ul>
+      <button class="navbar__hamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="navbar__mobile-menu">
+        <ul>
+          <li><a href="#therapien">Therapien</a></li>
+          <li><a href="#ueber-uns">Über Uns</a></li>
+          <li><a href="#preise">Termin buchen</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- SHARED:NAV:END -->
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <!-- Parallax depth layers -->
+    <div class="hero__depth-layer hero__depth-layer--far"></div>
+    <div class="hero__depth-layer hero__depth-layer--mid"></div>
+    <div class="hero__bg">
+      <img src="images/portrait_mh1.jpeg" alt="" loading="eager">
+    </div>
+    <div class="hero__depth-layer hero__depth-layer--near"></div>
+    <div class="hero__light-sweep" aria-hidden="true"></div>
+    <div class="hero__content">
+      <span class="hero__label">Therapiepraxis in Bönningstedt</span>
+      <h1 class="hero__title"><span class="hero__title-line">Entdecken Sie Ihr</span><em>Maximum</em> an Gesundheit</h1>
+      <p class="hero__subtitle">Herzlich willkommen bei Maximum Health – Ihrem Zentrum für ganzheitliche Heilung und persönliches Wachstum.</p>
+      <div class="hero__cta-wrap">
+        <a href="#preise" class="btn btn--primary btn--large">Termin buchen</a>
+      </div>
+    </div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+  </section>
+
+  <!-- Therapien Section -->
+  <section id="therapien" class="section section--sage-tint">
+    <div class="container">
+      <h2 class="section__heading text-center reveal">Ganzheitliche Therapieansätze für Ihr Wohlergehen</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Erleben Sie unsere vielfältigen Therapiemethoden und die individuelle Beratung, die gezielt auf Ihre Gesundheit abgestimmt sind. Von manueller Gelenktherapie bis hin zu effektiven Muskelbehandlungen – wir fördern Ihr körperliches und geistiges Wohlbefinden auf Ihrem Weg zur ganzheitlichen Gesundheit.</p>
+      <div class="therapies__grid">
+
+        <div class="therapy-card therapy-card--featured reveal reveal--delay-1" data-reveal-from="left">
+          <div class="therapy-card__glow"></div>
+          <div class="therapy-card__inner">
+            <div class="therapy-card__icon">
+              <svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="4"/><path d="M14 6v-2M14 24v-2M6 14H4M24 14h-2"/><circle cx="14" cy="14" r="10"/></svg>
+            </div>
+            <span class="therapy-card__num">01</span>
+            <h3 class="therapy-card__title">Manuelle Gelenktherapie</h3>
+            <p class="therapy-card__description">Diese Technik konzentriert sich auf die Wiederherstellung der optimalen Funktion und Beweglichkeit von Gelenken. Durch gezielte Handgriffe löse ich Gelenkblockaden und verbessere so die Beweglichkeit.</p>
+            <div class="therapy-card__line"></div>
+          </div>
+        </div>
+
+        <div class="therapy-card reveal reveal--delay-2" data-reveal-from="bottom">
+          <div class="therapy-card__glow"></div>
+          <div class="therapy-card__inner">
+            <div class="therapy-card__icon">
+              <svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="10" r="6"/><path d="M8 10c0-3.3 2.7-6 6-6"/><path d="M10 22h8M12 18h4M11 26h6"/></svg>
+            </div>
+            <span class="therapy-card__num">02</span>
+            <h3 class="therapy-card__title">Schröpftherapie</h3>
+            <p class="therapy-card__description">Eine traditionelle Methode, die durch das Anlegen von Schröpfgläsern auf der Haut funktioniert. Dies fördert die Durchblutung, löst Verspannungen und aktiviert tiefere Heilungsprozesse.</p>
+            <div class="therapy-card__line"></div>
+          </div>
+        </div>
+
+        <div class="therapy-card reveal reveal--delay-3" data-reveal-from="right">
+          <div class="therapy-card__glow"></div>
+          <div class="therapy-card__inner">
+            <div class="therapy-card__icon">
+              <svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v20M21 4v20"/><path d="M7 10h14M7 18h14"/><path d="M10 10v8M18 10v8M14 7v14"/></svg>
+            </div>
+            <span class="therapy-card__num">03</span>
+            <h3 class="therapy-card__title">Tiefenmuskulaturtherapie</h3>
+            <p class="therapy-card__description">Diese Therapie zielt darauf ab, tiefliegende Spannungen in der Muskulatur zu lösen. Intensive Techniken erreichen tiefe Muskelschichten zur Linderung chronischer Schmerzen.</p>
+            <div class="therapy-card__line"></div>
+          </div>
+        </div>
+
+        <div class="therapy-card reveal reveal--delay-2" data-reveal-from="left">
+          <div class="therapy-card__glow"></div>
+          <div class="therapy-card__inner">
+            <div class="therapy-card__icon">
+              <svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="3"/><circle cx="14" cy="14" r="8"/><path d="M14 2v4M14 22v4M2 14h4M22 14h4"/></svg>
+            </div>
+            <span class="therapy-card__num">04</span>
+            <h3 class="therapy-card__title">Triggerpunkttherapie</h3>
+            <p class="therapy-card__description">Durch Druck und spezielle Techniken behandle ich Triggerpunkte, die oft die Ursache für ausstrahlende Schmerzen und chronische Beschwerden sind — gezielt und nachhaltig.</p>
+            <div class="therapy-card__line"></div>
+          </div>
+        </div>
+
+        <div class="therapy-card reveal reveal--delay-3" data-reveal-from="bottom">
+          <div class="therapy-card__glow"></div>
+          <div class="therapy-card__inner">
+            <div class="therapy-card__icon">
+              <svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c4-8 16-8 20 0"/><path d="M4 14c4 8 16 8 20 0"/><path d="M8 14c2-4 8-4 12 0"/><path d="M8 14c2 4 8 4 12 0"/></svg>
+            </div>
+            <span class="therapy-card__num">05</span>
+            <h3 class="therapy-card__title">Dynamische Faszienmassage</h3>
+            <p class="therapy-card__description">Spezielle Techniken lösen Verspannungen und Verklebungen in den Faszien. Dies fördert die Beweglichkeit, verringert Schmerzen und steigert das allgemeine Wohlbefinden.</p>
+            <div class="therapy-card__line"></div>
+          </div>
+        </div>
+
+        <div class="therapy-card reveal reveal--delay-4" data-reveal-from="right">
+          <div class="therapy-card__glow"></div>
+          <div class="therapy-card__inner">
+            <div class="therapy-card__icon">
+              <svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v8l4 4"/><circle cx="14" cy="14" r="10"/><circle cx="6" cy="22" r="2"/><circle cx="22" cy="22" r="2"/><circle cx="14" cy="4" r="2"/></svg>
+            </div>
+            <span class="therapy-card__num">06</span>
+            <h3 class="therapy-card__title">Reflexpunkttherapie</h3>
+            <p class="therapy-card__description">Gezielte Stimulation von Körperpunkten, die mit spezifischen Organen verbunden sind. Ideal zur Behandlung von Kopfschmerzen und Muskelverspannungen.</p>
+            <div class="therapy-card__line"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Über Uns / Profil Section -->
+  <section id="ueber-uns" class="section section--sage-tint section--deep">
+    <div class="container">
+      <div class="profile__grid">
+        <div class="profile__bio reveal">
+          <h2 class="section__heading">Über Maximilian Mix</h2>
+          <p class="profile__title">Therapeut, Coach & Geschäftsführer</p>
+          <div class="profile__text">
+            <p>Meine Leidenschaft als Therapeut liegt darin, Ihnen den Weg zu maximaler Gesundheit zu ebnen. Mit meinem fundierten Wissen aus verschiedenen klassischen und alternativen Therapieansätzen behandle ich nicht nur Ihre physischen Beschwerden, sondern öffne auch Türen zu geistigem Wohlbefinden. Mein ganzheitlicher Ansatz kombiniert diese körperlichen Therapien mit spirituellem Coaching, um Ihnen ein Rundum-Paket für Ihre Gesundheit anzubieten. Bei mir finden Sie mehr als nur Behandlung – Sie finden einen Wegbegleiter, der Ihnen hilft, Ihr volles Gesundheitspotential zu entfalten.</p>
+          </div>
+          <a href="#preise" class="btn btn--primary profile__cta">Termin buchen</a>
+        </div>
+        <div class="profile__photo reveal reveal--delay-2">
+          <img src="images/therapist.png" alt="Maximilian Mix — Therapeut">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="preise" class="section section--sage-tint">
+    <div class="container">
+      <h2 class="section__heading text-center reveal">Wählen Sie Ihr Therapiepaket</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Finden Sie das ideale Paket aus unseren maßgeschneiderten Therapieangeboten, abgestimmt auf Ihre spezifischen Gesundheitsbedürfnisse und Ziele.</p>
+      <div class="pricing__grid">
+
+        <div class="pricing-card reveal reveal--delay-1">
+          <div class="pricing-card__head">
+            <span class="pricing-card__duration">20 Min.</span>
+            <h3 class="pricing-card__title">Basic</h3>
+            <div class="pricing-card__price">75 <span>€</span></div>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__features">
+              <li>Manuelle Gelenktherapie</li>
+            </ul>
+            <a href="https://calendly.com/maximum-health/basic" class="btn btn--outline" target="_blank" rel="noopener">Termin buchen</a>
+          </div>
+        </div>
+
+        <div class="pricing-card reveal reveal--delay-2">
+          <div class="pricing-card__head">
+            <span class="pricing-card__duration">45 Min.</span>
+            <h3 class="pricing-card__title">Basic Plus</h3>
+            <div class="pricing-card__price">149 <span>€</span></div>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__features">
+              <li>Manuelle Gelenktherapie</li>
+              <li>Triggerpunkttherapie</li>
+            </ul>
+            <a href="https://calendly.com/maximum-health/basic-plus" class="btn btn--outline" target="_blank" rel="noopener">Termin buchen</a>
+          </div>
+        </div>
+
+        <div class="pricing-card pricing-card--featured reveal reveal--delay-3">
+          <div class="pricing-card__head">
+            <span class="pricing-card__badge">Beliebt</span>
+            <span class="pricing-card__duration">90 Min.</span>
+            <h3 class="pricing-card__title">Premium</h3>
+            <div class="pricing-card__price">269 <span>€</span></div>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__features">
+              <li>Manuelle Gelenktherapie</li>
+              <li>Triggerpunkttherapie</li>
+              <li>Tiefenmuskulaturtherapie</li>
+              <li>Schröpftherapie</li>
+              <li>Dynamische Faszienmassage</li>
+              <li>Reflexpunkttherapie</li>
+            </ul>
+            <a href="https://calendly.com/maximum-health/premium" class="btn btn--primary" target="_blank" rel="noopener">Termin buchen</a>
+          </div>
+        </div>
+
+        <div class="pricing-card reveal reveal--delay-4">
+          <div class="pricing-card__head">
+            <span class="pricing-card__duration">75 Min.</span>
+            <h3 class="pricing-card__title">Pro</h3>
+            <div class="pricing-card__price">229 <span>€</span></div>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__features">
+              <li>Manuelle Gelenktherapie</li>
+              <li>Triggerpunkttherapie</li>
+              <li>Tiefenmuskulaturtherapie</li>
+              <li>Schröpftherapie</li>
+            </ul>
+            <a href="https://calendly.com/maximum-health/pro" class="btn btn--outline" target="_blank" rel="noopener">Termin buchen</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Online-Coaching Section -->
+  <section id="coaching" class="section section--sage-tint section--deep">
+    <div class="container">
+      <h2 class="section__heading text-center reveal">Online-Coaching</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Ihr Weg zu ganzheitlicher Gesundheit – Schritt für Schritt. Unsere dreistufigen Online-Coachings bieten Ihnen einen klar strukturierten Weg zu mehr Vitalität, Balance und tiefer innerer Klarheit. Jedes Coaching baut auf dem vorherigen auf und begleitet Sie in Ihrem individuellen Tempo – von der präventiven Gesundheitsförderung bis zur tiefgehenden Transformation. Entdecken Sie, wie ganzheitliche Ansätze Körper, Geist und Seele in Einklang bringen und eine nachhaltige Verbesserung Ihrer Lebensqualität bewirken können.</p>
+      <div class="coaching__grid">
+
+        <div class="coaching-card reveal reveal--delay-1">
+          <div class="coaching-card__head">
+            <div class="coaching-card__icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="6"/><path d="M14 4v3M14 21v3M4 14h3M21 14h3M7.1 7.1l2.1 2.1M18.8 18.8l2.1 2.1M7.1 20.9l2.1-2.1M18.8 9.2l2.1-2.1"/></svg>
+            </div>
+            <span class="coaching-card__step">Stufe 1</span>
+            <h3 class="coaching-card__title">Lebensfunke</h3>
+            <p class="coaching-card__focus">Vitalität und Prävention</p>
+          </div>
+          <div class="coaching-card__body">
+            <p class="coaching-card__description">Einführung in die Grundlagen der ganzheitlichen Gesundheit. Analyse Ihres aktuellen Wohlbefindens und erste Schritte zu mehr Vitalität im Alltag</p>
+            <div class="coaching-card__footer">
+              <div class="coaching-card__pricing">
+                <span class="coaching-card__price">129 <span>€</span></span>
+                <span class="coaching-card__duration">60 Min.</span>
+              </div>
+              <a href="https://calendly.com/maximum-health/lebensfunke" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener">Buchen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coaching-card reveal reveal--delay-2">
+          <div class="coaching-card__head">
+            <div class="coaching-card__icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3c-3 4-8 4-8 9a8 8 0 0 0 16 0c0-5-5-5-8-9z"/><path d="M10 18a4 4 0 0 0 8 0c0-3-4-4-4-7-0 3-4 4-4 7z"/></svg>
+            </div>
+            <span class="coaching-card__step">Stufe 2</span>
+            <h3 class="coaching-card__title">Balancequelle</h3>
+            <p class="coaching-card__focus">Vertiefung der inneren Balance</p>
+          </div>
+          <div class="coaching-card__body">
+            <p class="coaching-card__description">Detaillierte Gesundheitsanalyse und individuelle Balance-Strategien. Stärkung der Körper-Geist-Verbindung durch gezielte Übungen und persönliche Begleitung</p>
+            <div class="coaching-card__footer">
+              <div class="coaching-card__pricing">
+                <span class="coaching-card__price">189 <span>€</span></span>
+                <span class="coaching-card__duration">90 Min.</span>
+              </div>
+              <a href="https://calendly.com/maximum-health/balancequelle" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener">Buchen</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="coaching-card reveal reveal--delay-3">
+          <div class="coaching-card__head">
+            <div class="coaching-card__icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2l2.5 5.1L22 8.2l-4 3.9.9 5.5L14 15l-4.9 2.6.9-5.5-4-3.9 5.5-.8L14 2z"/><path d="M8 21l-2 5M20 21l2 5M14 22v4"/></svg>
+            </div>
+            <span class="coaching-card__step">Stufe 3</span>
+            <h3 class="coaching-card__title">Seelenkompass</h3>
+            <p class="coaching-card__focus">Tiefe Transformation und Klarheit</p>
+          </div>
+          <div class="coaching-card__body">
+            <p class="coaching-card__description">Umfassende emotionale und mentale Analyse. Identifikation tief verwurzelter Muster. Lösung von Blockaden, Integration von Körper und Psyche</p>
+            <div class="coaching-card__footer">
+              <div class="coaching-card__pricing">
+                <span class="coaching-card__price">249 <span>€</span></span>
+                <span class="coaching-card__duration">120 Min.</span>
+              </div>
+              <a href="https://calendly.com/maximum-health/seelenkompass" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener">Buchen</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Spirit Section -->
+  <section id="spirit" class="section section--sage-tint">
+    <div class="container">
+      <div class="spirit__hero reveal">
+        <span class="spirit__hero-label">Spirituelles Coaching</span>
+        <h2 class="spirit__hero-title"><em>Spirit</em></h2>
+        <p class="spirit__hero-text">Im 'Spirit'-Paket erklären wir die essenzielle Verbindung zwischen Emotionen, Geist und körperlicher Gesundheit. Erfahren Sie, wie tief sitzende emotionale Prägungen und unbewusste Gedankenmuster physische Symptome beeinflussen können. In unserem spirituellen Coaching bringen wir Licht in diese komplexen Wechselwirkungen und arbeiten daran, sie zu entwirren. Indem wir gemeinsam emotionale Blockaden lösen und zu einer ausgeglichenen Psyche finden, öffnen wir den Weg zu Ihrer maximalen Gesundheit – eine Reise, die ebenso heilend wie erhellend ist.</p>
+      </div>
+      <div class="spirit__features">
+        <div class="spirit__feature reveal reveal--delay-1">
+          <div class="spirit__feature-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="14" r="5"/><circle cx="16" cy="14" r="10"/><path d="M10 26c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+            </svg>
+          </div>
+          <h4 class="spirit__feature-title">Tiefenanalyse</h4>
+          <p class="spirit__feature-text">Erkennen von emotionalen und mentalen Mustern, die physische Beschwerden beeinflussen.</p>
+        </div>
+        <div class="spirit__feature reveal reveal--delay-2">
+          <div class="spirit__feature-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="12" r="4"/><path d="M8 20c1-4 4-6 8-6s7 2 8 6"/><path d="M16 4v-2M24 7l1.5-1.5M26 14h2M8 7L6.5 5.5M6 14H4"/>
+            </svg>
+          </div>
+          <h4 class="spirit__feature-title">Bewusstseinsbildung</h4>
+          <p class="spirit__feature-text">Verständnis, wie Glaubenssätze und Prägungen körperliches Wohlbefinden formen.</p>
+        </div>
+        <div class="spirit__feature reveal reveal--delay-3">
+          <div class="spirit__feature-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 16c0-5.5 4.5-10 10-10s10 4.5 10 10"/><path d="M11 16l3.5 3.5L22 12"/><path d="M10 24l-3 4M22 24l3 4"/>
+            </svg>
+          </div>
+          <h4 class="spirit__feature-title">Auflösung von Blockaden</h4>
+          <p class="spirit__feature-text">Techniken zur Freisetzung verankerter emotionaler Barrieren.</p>
+        </div>
+        <div class="spirit__feature reveal reveal--delay-1">
+          <div class="spirit__feature-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 16a6 6 0 1 1 12 0a6 6 0 1 1-12 0" /><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8"/>
+            </svg>
+          </div>
+          <h4 class="spirit__feature-title">Mentale & physische Synchronisation</h4>
+          <p class="spirit__feature-text">Förderung der Einheit zwischen mentaler Gesundheit und körperlicher Verfassung.</p>
+        </div>
+        <div class="spirit__feature reveal reveal--delay-2">
+          <div class="spirit__feature-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 28s-10-6.5-10-14a7 7 0 0 1 13-3.5h0A7 7 0 0 1 26 14c0 7.5-10 14-10 14z"/><circle cx="16" cy="15" r="3"/>
+            </svg>
+          </div>
+          <h4 class="spirit__feature-title">Individuelle Betreuung</h4>
+          <p class="spirit__feature-text">Persönliche Begleitung auf dem Weg zu innerer Klarheit und physischer Gesundheit.</p>
+        </div>
+        <div class="spirit__feature reveal reveal--delay-3">
+          <div class="spirit__feature-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 28V14"/><path d="M16 14c-3-4-8-4-8 1s8 7 8 7"/><path d="M16 14c3-4 8-4 8 1s-8 7-8 7"/><path d="M12 28h8"/><circle cx="16" cy="7" r="3"/>
+            </svg>
+          </div>
+          <h4 class="spirit__feature-title">Nachhaltige Wirkung</h4>
+          <p class="spirit__feature-text">Entwicklung von Werkzeugen zur langfristigen Erhaltung der erlangten Balance.</p>
+        </div>
+      </div>
+      <div class="spirit__cta reveal">
+        <div class="spirit__cta-inner">
+          <div class="spirit__cta-left">
+            <span class="spirit__cta-label">Spirit Coaching</span>
+            <h3 class="spirit__cta-title">Starten Sie Ihre Reise<br>zu innerer Klarheit</h3>
+            <p class="spirit__cta-sub">Körper, Geist und Seele in Einklang — in einer persönlichen 60-Minuten-Sitzung.</p>
+          </div>
+          <div class="spirit__cta-right">
+            <div class="spirit__price">
+              <span class="spirit__price-amount">149</span>
+              <div class="spirit__price-meta">
+                <span class="spirit__price-currency">€</span>
+                <span class="spirit__price-duration">/ 60 Min.</span>
+              </div>
+            </div>
+            <a href="https://calendly.com/maximum-health/spirit" class="btn btn--primary btn--large" target="_blank" rel="noopener">Jetzt Termin buchen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Section -->
+  <section class="reviews section--deep">
+    <div class="reviews__header">
+      <div class="reviews__badge">
+        <svg class="reviews__badge-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        <span class="reviews__badge-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </span>
+        <span class="reviews__badge-score">5.0</span> · 12 Bewertungen
+      </div>
+      <h2 class="section__heading reveal">Das sagen unsere Klienten</h2>
+    </div>
+    <div class="reviews__track">
+      <!-- Set 1 -->
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Maximilian ist ein außergewöhnlicher Therapeut. Nach nur zwei Sitzungen waren meine chronischen Rückenschmerzen deutlich besser. Seine ganzheitliche Herangehensweise hat mich überzeugt.</p><div class="review-card__author"><div class="review-card__avatar">S</div><div><div class="review-card__name">Sandra K.</div><div class="review-card__date">vor 2 Wochen</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Die Schröpftherapie bei Maximum Health hat Wunder gewirkt. Ich fühle mich wie neugeboren. Sehr professionelle und angenehme Atmosphäre. Kann ich nur weiterempfehlen!</p><div class="review-card__author"><div class="review-card__avatar">T</div><div><div class="review-card__name">Thomas B.</div><div class="review-card__date">vor 1 Monat</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Das Premium-Paket ist jeden Cent wert. 90 Minuten intensive Behandlung, die wirklich in die Tiefe geht. Maximilian nimmt sich Zeit und erklärt alles verständlich. Absolute Empfehlung!</p><div class="review-card__author"><div class="review-card__avatar">M</div><div><div class="review-card__name">Martina R.</div><div class="review-card__date">vor 1 Monat</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Bin nach langer Suche endlich bei Maximilian gelandet und könnte nicht glücklicher sein. Die Triggerpunkttherapie hat meine Nackenverspannungen nachhaltig gelöst.</p><div class="review-card__author"><div class="review-card__avatar">J</div><div><div class="review-card__name">Jan-Henrik W.</div><div class="review-card__date">vor 2 Monaten</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Wunderbare Erfahrung! Das spirituelle Coaching hat mir geholfen, Zusammenhänge zwischen meinen emotionalen Blockaden und körperlichen Beschwerden zu erkennen. Sehr einfühlsam.</p><div class="review-card__author"><div class="review-card__avatar">A</div><div><div class="review-card__name">Andrea F.</div><div class="review-card__date">vor 3 Monaten</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Seit ich regelmäßig zur dynamischen Faszienmassage gehe, hat sich meine Beweglichkeit enorm verbessert. Maximilian hat goldene Hände und versteht sein Handwerk perfekt.</p><div class="review-card__author"><div class="review-card__avatar">P</div><div><div class="review-card__name">Peter L.</div><div class="review-card__date">vor 3 Monaten</div></div></div></div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Maximilian ist ein außergewöhnlicher Therapeut. Nach nur zwei Sitzungen waren meine chronischen Rückenschmerzen deutlich besser. Seine ganzheitliche Herangehensweise hat mich überzeugt.</p><div class="review-card__author"><div class="review-card__avatar">S</div><div><div class="review-card__name">Sandra K.</div><div class="review-card__date">vor 2 Wochen</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Die Schröpftherapie bei Maximum Health hat Wunder gewirkt. Ich fühle mich wie neugeboren. Sehr professionelle und angenehme Atmosphäre. Kann ich nur weiterempfehlen!</p><div class="review-card__author"><div class="review-card__avatar">T</div><div><div class="review-card__name">Thomas B.</div><div class="review-card__date">vor 1 Monat</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Das Premium-Paket ist jeden Cent wert. 90 Minuten intensive Behandlung, die wirklich in die Tiefe geht. Maximilian nimmt sich Zeit und erklärt alles verständlich. Absolute Empfehlung!</p><div class="review-card__author"><div class="review-card__avatar">M</div><div><div class="review-card__name">Martina R.</div><div class="review-card__date">vor 1 Monat</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Bin nach langer Suche endlich bei Maximilian gelandet und könnte nicht glücklicher sein. Die Triggerpunkttherapie hat meine Nackenverspannungen nachhaltig gelöst.</p><div class="review-card__author"><div class="review-card__avatar">J</div><div><div class="review-card__name">Jan-Henrik W.</div><div class="review-card__date">vor 2 Monaten</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Wunderbare Erfahrung! Das spirituelle Coaching hat mir geholfen, Zusammenhänge zwischen meinen emotionalen Blockaden und körperlichen Beschwerden zu erkennen. Sehr einfühlsam.</p><div class="review-card__author"><div class="review-card__avatar">A</div><div><div class="review-card__name">Andrea F.</div><div class="review-card__date">vor 3 Monaten</div></div></div></div>
+      <div class="review-card"><div class="review-card__stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p class="review-card__text">Seit ich regelmäßig zur dynamischen Faszienmassage gehe, hat sich meine Beweglichkeit enorm verbessert. Maximilian hat goldene Hände und versteht sein Handwerk perfekt.</p><div class="review-card__author"><div class="review-card__avatar">P</div><div><div class="review-card__name">Peter L.</div><div class="review-card__date">vor 3 Monaten</div></div></div></div>
+    </div>
+  </section>
+
+  <!-- CTA Banners -->
+  <section class="section cta-banners section--sage-tint section--deep">
+    <div class="container">
+      <h2 class="section__heading text-center reveal">Geschenk der Gesundheit</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Verwöhnen Sie sich oder Ihre Lieben mit unserem Gutschein und dem 5-Behandlungen-Paket. Genießen Sie eine einzelne Sitzung oder sparen Sie 10% mit unserem exklusiven Paketangebot. Ideal als Geschenk oder zur Förderung Ihres persönlichen Wohlbefindens.</p>
+      <div class="cta-banners__grid">
+
+        <div class="cta-banner cta-banner--gutschein reveal">
+          <div class="cta-banner__text">
+            <span class="cta-banner__label">Geschenkidee</span>
+            <h3 class="cta-banner__title">Gutschein erwerben</h3>
+            <p class="cta-banner__subtitle">Verschenken Sie Gesundheit und Wohlbefinden an Ihre Liebsten.</p>
+          </div>
+          <a href="gutschein.html" class="btn btn--sage">Zum Gutschein</a>
+        </div>
+
+        <div class="cta-banner cta-banner--sparpaket reveal reveal--delay-2">
+          <div class="cta-banner__text">
+            <span class="cta-banner__label">10% sparen</span>
+            <h3 class="cta-banner__title">5er Sparpaket erwerben</h3>
+            <p class="cta-banner__subtitle">Buchen Sie 5 Behandlungen zum Vorteilspreis und investieren Sie nachhaltig in Ihre Gesundheit.</p>
+          </div>
+          <a href="sparpaket.html" class="btn btn--primary">Zum Sparpaket</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt Section -->
+  <section id="kontakt" class="section section--sage-tint">
+    <div class="container">
+      <h2 class="section__heading text-center reveal">Kontakt</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Wir sind für Sie da. Ob Sie Fragen zu unseren Behandlungen haben, mehr über unsere Pakete erfahren möchten oder individuelle Anliegen besprechen wollen – zögern Sie nicht, uns zu kontaktieren. Wir legen großen Wert auf persönlichen Austausch und sind bestrebt, Ihnen zeitnah und umfassend zu antworten. Ihre Gesundheit und Ihr Wohlbefinden sind unser Anliegen und wir freuen uns darauf, Sie auf Ihrem Weg zu unterstützen.</p>
+      <div class="contact__grid reveal reveal--delay-2">
+
+        <div class="contact__info">
+          <p><strong>E-Mail:</strong> <a href="mailto:info@maximum-health.de">info@maximum-health.de</a></p>
+          <p><strong>Adresse:</strong> Hasloher Weg 3, 25474 Bönningstedt</p>
+        </div>
+
+        <div class="contact__map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2367.5!2d9.9!3d53.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sHasloher+Weg+3%2C+25474+B%C3%B6nningstedt!5e0!3m2!1sde!2sde!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standort Maximum Health auf Google Maps"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SHARED:FOOTER:START -->
+  <footer class="footer">
+    <div class="container text-center">
+      <img src="images/logo-footer-white.png" alt="Maximum Health" class="footer__logo">
+      <p class="footer__tagline">Ihr Weg zur ganzheitlichen Gesundheit.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/maximum_health.de/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+      <div class="footer__links">
+        <a href="impressum.html">Impressum</a>
+        <span>|</span>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+      <p class="footer__copy">&copy; 2025 Maximum Health — Maximilian Mix</p>
+    </div>
+  </footer>
+  <!-- SHARED:FOOTER:END -->
+
+  <!-- SHARED:COOKIE:START -->
+  <div id="cookie-banner" class="cookie-banner" style="display:none;">
+    <div class="cookie-banner__inner">
+      <p class="cookie-banner__text">Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern.</p>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--primary" id="cookie-accept">Akzeptieren</button>
+        <button class="btn btn--outline" id="cookie-reject">Ablehnen</button>
+      </div>
+    </div>
+  </div>
+  <!-- SHARED:COOKIE:END -->
+
+  <script src="js/cookie-banner.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/parallax.js"></script>
+</body>
+</html>

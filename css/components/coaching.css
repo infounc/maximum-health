@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Coaching Section — Split head/body cards with icon, journey feel
+   ========================================================================== */
+
+.coaching__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: center;
+  position: relative;
+}
+
+
+/* ---- Card shell ---- */
+.coaching-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--card-radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(107, 143, 113, 0.08);
+}
+
+.coaching-card:hover {
+  z-index: 3;
+  transform: translateY(-10px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35),
+              0 0 0 1px rgba(107, 143, 113, 0.1);
+  border-color: rgba(107, 143, 113, 0.15);
+}
+
+/* Left accent bar */
+.coaching-card::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 0;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--color-sage);
+  opacity: 0.15;
+  transition: var(--transition);
+  z-index: 4;
+}
+
+.coaching-card:hover::before {
+  opacity: 0.5;
+  top: 15%;
+  bottom: 15%;
+  background: var(--color-gold);
+}
+
+/* ---- Head: icon + title area ---- */
+.coaching-card__head {
+  background: linear-gradient(180deg, rgba(107, 143, 113, 0.06) 0%, transparent 100%);
+  padding: 36px 28px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+/* ---- Icon circle ---- */
+.coaching-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  background: rgba(107, 143, 113, 0.06);
+  border: 1px solid rgba(107, 143, 113, 0.12);
+  color: var(--color-sage-light);
+  transition: var(--transition);
+}
+
+.coaching-card__icon svg {
+  width: 24px;
+  height: 24px;
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.coaching-card:hover .coaching-card__icon {
+  background: var(--color-sage);
+  border-color: var(--color-sage);
+  color: var(--color-white);
+  box-shadow: 0 0 24px rgba(107, 143, 113, 0.25);
+  transform: translateY(-2px);
+}
+
+.coaching-card:hover .coaching-card__icon svg {
+  transform: scale(1.1);
+}
+
+/* ---- Step label ---- */
+.coaching-card__step {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-sage-light);
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* ---- Title ---- */
+.coaching-card__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+  transition: var(--transition-fast);
+}
+
+.coaching-card:hover .coaching-card__title {
+  background: radial-gradient(ellipse at 50% 40%, #E0BC5A 0%, var(--color-gold) 60%, var(--color-gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Focus tagline ---- */
+.coaching-card__focus {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ---- Body ---- */
+.coaching-card__body {
+  background-color: var(--color-bg-card);
+  padding: 24px 28px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Description ---- */
+.coaching-card__description {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+/* ---- Footer: price + button side by side ---- */
+.coaching-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- Pricing cluster ---- */
+.coaching-card__pricing {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coaching-card__price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-gold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.coaching-card__price span {
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.6;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.coaching-card__duration {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+/* ---- Button ---- */
+.coaching-card__btn {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1150px) {
+  .coaching__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coaching-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .coaching__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .coaching-card:last-child {
+    max-width: none;
+  }
+
+  .coaching-card__head {
+    padding: 28px 24px 20px;
+  }
+
+  .coaching-card__body {
+    padding: 20px 24px 24px;
+  }
+
+  .coaching-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+  }
+
+  .coaching-card__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .coaching-card__title {
+    font-size: 1.25rem;
+  }
+
+  .coaching-card__price {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .coaching-card__head {
+    padding: 24px 20px 18px;
+  }
+
+  .coaching-card__body {
+    padding: 18px 20px 24px;
+  }
+
+  .coaching-card__footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .coaching-card__pricing {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .coaching-card__btn {
+    width: 100%;
+  }
+
+  /* Hide accent bar on mobile */
+  .coaching-card::before {
+    display: none;
+  }
+}

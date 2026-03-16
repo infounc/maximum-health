@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Layout — Container & Sections
+   ========================================================================== */
+
+/* ---- Container ---- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* ---- Sections ---- */
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+.section--dark-1 {
+  background-color: var(--color-bg-deep);
+}
+
+/* Tinted sections — bring brand color into backgrounds */
+.section--sage-tint {
+  background-color: var(--color-bg-base);
+}
+
+/* Deeper background variation for visual rhythm */
+.section--deep {
+  background-color: var(--color-bg-deep);
+}
+
+/* Gradient divider between sections */
+.section + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(107, 143, 113, 0.15), rgba(212, 168, 67, 0.1), rgba(107, 143, 113, 0.15), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--section-padding-sm);
+  }
+
+  .section + .section::before {
+    left: 5%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 72px 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}

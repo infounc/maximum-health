@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Cookie Banner — Dark, compact, glassmorphism
+   ========================================================================== */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  max-width: 560px;
+  background: rgba(14, 22, 16, 0.95);
+  color: var(--color-white);
+  padding: 24px;
+  z-index: 9999;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(107, 143, 113, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.cookie-banner__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cookie-banner__text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.cookie-banner__text a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cookie-banner__actions .btn {
+  padding: 10px 24px;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 16px;
+  }
+
+  .cookie-banner__text {
+    font-size: 0.82rem;
+  }
+
+  .cookie-banner__inner {
+    gap: 12px;
+  }
+
+  .cookie-banner__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
