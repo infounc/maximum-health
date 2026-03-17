@@ -10,11 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = navbar.querySelector('.navbar__mobile-menu');
   const navLinks = navbar.querySelectorAll('.navbar__mobile-menu a, .navbar__links a');
 
-  // Sticky navbar: Klasse hinzufuegen/entfernen bei Scroll
-  // Auf Sub-Seiten (navbar--scrolled als Default im HTML) bleibt die Navbar immer scrolled
-  const isAlwaysScrolled = navbar.classList.contains('navbar--scrolled');
+  // Sticky navbar: Auf der Startseite (mit Hero-Section) wird der Scroll-Effekt
+  // dynamisch gesteuert — transparent oben, dunkel beim Scrollen.
+  // Auf Sub-Seiten ohne Hero bleibt navbar--scrolled permanent gesetzt.
+  const hasHero = document.getElementById('hero') !== null;
 
-  if (!isAlwaysScrolled) {
+  if (hasHero) {
+    // Startseite: Scroll-Effekt aktivieren
+    navbar.classList.remove('navbar--scrolled');
+
     const handleScroll = () => {
       if (window.scrollY > 50) {
         navbar.classList.add('navbar--scrolled');
@@ -27,28 +31,44 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll(); // Initial check
   }
 
-  // Mobile hamburger toggle
+  // Mobile hamburger toggle (fullscreen overlay)
   if (toggle && menu) {
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      toggle.classList.toggle('navbar__hamburger--active');
+      const isOpen = toggle.classList.toggle('navbar__hamburger--active');
       menu.classList.toggle('navbar__mobile-menu--open');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   }
 
+  // Helper: Menü schließen
+  const closeMenu = () => {
+    if (toggle) {
+      toggle.classList.remove('navbar__hamburger--active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    if (menu) menu.classList.remove('navbar__mobile-menu--open');
+    document.body.style.overflow = '';
+  };
+
   // Nav-Links schliessen das Mobile Menu
   navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      if (toggle) toggle.classList.remove('navbar__hamburger--active');
-      if (menu) menu.classList.remove('navbar__mobile-menu--open');
-    });
+    link.addEventListener('click', closeMenu);
   });
 
   // Klick ausserhalb schliesst das Mobile Menu
   document.addEventListener('click', (e) => {
     if (!navbar.contains(e.target)) {
-      if (toggle) toggle.classList.remove('navbar__hamburger--active');
-      if (menu) menu.classList.remove('navbar__mobile-menu--open');
+      closeMenu();
+    }
+  });
+
+  // Escape-Taste schliesst das Mobile Menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu && menu.classList.contains('navbar__mobile-menu--open')) {
+      closeMenu();
+      if (toggle) toggle.focus();
     }
   });
 });

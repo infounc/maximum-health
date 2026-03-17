@@ -178,6 +178,25 @@ ul, ol {
 }
 
 /* ==========================================================================
+   Focus Styles — Accessibility
+   ========================================================================== */
+
+a:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Smooth Scroll — native, resilient gegen Layout-Shifts
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ==========================================================================
    Scroll Reveal Animations
    ========================================================================== */
 
@@ -201,6 +220,16 @@ ul, ol {
 .reveal--delay-5 { transition-delay: 0.75s; }
 .reveal--delay-6 { transition-delay: 0.9s; }
 
+/* Reduced motion: Elemente sofort sichtbar, keine Verschiebung */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
 /* ==========================================================================
    Responsive Typography
    ========================================================================== */
@@ -208,5 +237,80 @@ ul, ol {
 @media (max-width: 480px) {
   body {
     font-size: 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  /* Grundlegend: Weisser Hintergrund, schwarzer Text */
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 12pt;
+  }
+
+  /* Dekorative Overlays entfernen */
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  /* Navigation, Cookie-Banner, Parallax-Layer ausblenden */
+  .navbar,
+  .cookie-banner,
+  .hero__depth-layer,
+  .hero__light-sweep,
+  .hero__vignette,
+  .hero__scroll {
+    display: none !important;
+  }
+
+  /* Reveal-Elemente sichtbar machen */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Links als URL anzeigen */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  /* Seitenumbrueche vermeiden innerhalb von Karten/Sektionen */
+  .section,
+  .therapy-card,
+  .pricing-card,
+  .coaching-card,
+  .contact__card,
+  .review-card,
+  .blog-card {
+    break-inside: avoid;
+  }
+
+  /* Hintergruende entfernen fuer Lesbarkeit */
+  .section,
+  .section--dark-1,
+  .section--deep,
+  .hero {
+    background: none !important;
+  }
+
+  /* Textfarben fuer Druck anpassen */
+  h1, h2, h3, h4 {
+    color: #000 !important;
+    background: none !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+
+  /* Schatten und Animationen entfernen */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
   }
 }

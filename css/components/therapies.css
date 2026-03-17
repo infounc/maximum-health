@@ -295,6 +295,26 @@
   padding-top: 4px;
 }
 
+/* ---- "Mehr erfahren" Link ---- */
+.therapy-card__link {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-sage-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  transition: color var(--duration-fast) var(--ease-out),
+              gap var(--duration-fast) var(--ease-out);
+}
+
+.therapy-card:hover .therapy-card__link {
+  color: var(--color-gold);
+  gap: 8px;
+}
+
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -406,6 +426,17 @@
   .therapy-card[data-reveal-from="left"].reveal--visible,
   .therapy-card[data-reveal-from="right"].reveal--visible {
     transform: translateY(0);
+  }
+}
+
+/* Reduced motion: sofort sichtbar */
+@media (prefers-reduced-motion: reduce) {
+  .therapy-card[data-reveal-from="left"],
+  .therapy-card[data-reveal-from="right"],
+  .therapy-card[data-reveal-from="bottom"] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

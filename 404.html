@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-  <title>Impressum — Maximum Health</title>
-  <meta name="description" content="Impressum der Therapiepraxis Maximum Health — Maximilian Mix, Hasloher Weg 3, 25474 Bönningstedt.">
-  <link rel="canonical" href="https://maximum-health.de/impressum.html">
+  <title>Seite nicht gefunden — Maximum Health</title>
+  <meta name="robots" content="noindex">
   <!-- SHARED:HEAD-CSS:START -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/reset.css">
@@ -17,7 +16,110 @@
   <!-- SHARED:HEAD-CSS:END -->
   <link rel="stylesheet" href="css/components/footer.css">
   <link rel="stylesheet" href="css/components/buttons.css">
-  <link rel="stylesheet" href="css/components/legal.css">
+  <style>
+    .error-page {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle radial glow behind the 404 */
+    .error-page::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--color-sage-muted) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulse-glow 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; transform: translate(-50%, -60%) scale(1); }
+      50% { opacity: 0.7; transform: translate(-50%, -60%) scale(1.1); }
+    }
+
+    .error-page__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .error-page__code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 18vw, 12rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 40%, var(--color-sage-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fade-in-up 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    .error-page__divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+      margin: 24px auto;
+      animation: fade-in-up 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both;
+    }
+
+    .error-page__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      color: var(--color-text);
+      margin-bottom: 16px;
+      font-weight: 500;
+      animation: fade-in-up 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+    }
+
+    .error-page__text {
+      color: var(--color-text-muted);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      animation: fade-in-up 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s both;
+    }
+
+    .error-page__actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fade-in-up 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .error-page__code,
+      .error-page__divider,
+      .error-page__title,
+      .error-page__text,
+      .error-page__actions {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .error-page::before {
+        animation: none;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <!-- SHARED:NAV:START -->
@@ -51,25 +153,16 @@
   </nav>
   <!-- SHARED:NAV:END -->
 
-  <main class="legal-content section">
-    <div class="container">
-      <h1>Impressum</h1>
-
-      <h2>MAXIMUM HEALTH</h2>
-      <p>Maximilian Mix<br>
-      Hasloher Weg 3<br>
-      25474 Bönningstedt<br>
-      <a href="mailto:info@maximum-health.de">info@maximum-health.de</a><br>
-      Steuernummer 31/056/61513</p>
-
-      <h2>Haftungsbeschränkung:</h2>
-      <p>Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Der Anbieter übernimmt jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte.</p>
-
-      <h2>Externe Links:</h2>
-      <p>Diese Website enthält Verknüpfungen zu Websites Dritter. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.</p>
-
-      <h2>Urheber- und Leistungsschutzrechte:</h2>
-      <p>Jede vom deutschen Urheber- und Leistungsschutzrecht nicht zugelassene Verwertung bedarf der vorherigen schriftlichen Zustimmung des Anbieters.</p>
+  <main class="error-page">
+    <div class="error-page__content">
+      <div class="error-page__code">404</div>
+      <div class="error-page__divider"></div>
+      <h1 class="error-page__title">Seite nicht gefunden</h1>
+      <p class="error-page__text">Die gewünschte Seite existiert leider nicht oder wurde verschoben. Kehren Sie zur Startseite zurück oder entdecken Sie unsere Therapieangebote.</p>
+      <div class="error-page__actions">
+        <a href="index.html" class="btn btn--primary btn--large">Zur Startseite</a>
+        <a href="index.html#therapien" class="btn btn--outline btn--large">Therapien entdecken</a>
+      </div>
     </div>
   </main>
 

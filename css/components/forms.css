@@ -167,6 +167,7 @@
 }
 
 .form-group__error-msg {
+  display: block;
   font-size: 0.8rem;
   color: var(--color-error);
   margin-top: 8px;

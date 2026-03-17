@@ -456,11 +456,32 @@
 }
 
 /* ==========================================================================
+   Homepage Blog Teaser
+   ========================================================================== */
+
+.home-blog__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.home-blog .blog-card__image {
+  aspect-ratio: 3 / 2;
+}
+
+.home-blog__cta {
+  margin-top: 48px;
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
 @media (max-width: 1024px) {
-  .blog-grid {
+  .blog-grid,
+  .home-blog__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
@@ -471,7 +492,8 @@
     padding: 120px 20px 40px;
   }
 
-  .blog-grid {
+  .blog-grid,
+  .home-blog__grid {
     grid-template-columns: 1fr;
     max-width: 480px;
     gap: 18px;

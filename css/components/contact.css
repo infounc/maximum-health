@@ -275,7 +275,7 @@ a.contact__card-value:hover {
 }
 
 .contact__map-route-btn:hover {
-  background: #e0b53e;
+  background: var(--color-gold-light);
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(212, 168, 67, 0.3);
   color: var(--color-bg-deep);

@@ -1,26 +1,36 @@
 /**
  * Smooth Scroll - maximum-health.de
- * Sanftes Scrollen zu Anker-Links mit Offset fuer die fixe Navbar.
+ *
+ * Scrolling wird komplett per CSS gesteuert (scroll-behavior: smooth + scroll-padding-top).
+ * Dieses Script normalisiert nur same-page Links wie "index.html#coaching" zu "#coaching",
+ * damit der Browser sie als Anker-Links erkennt und nativ smooth scrollt.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  const NAVBAR_OFFSET = 70;
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  document.querySelectorAll('a[href*="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      if (targetId === '#' || targetId === '') return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
 
-      const target = document.querySelector(targetId);
+      // Reine Anker-Links brauchen keine Behandlung — Browser handled sie nativ
+      if (href.startsWith('#')) return;
+
+      // Relative Links mit Anker: index.html#section oder ../index.html#section
+      const hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+
+      const hash = href.substring(hashIndex);
+      const linkUrl = new URL(href, window.location.href);
+
+      // Nur eingreifen wenn der Link auf die aktuelle Seite zeigt
+      if (linkUrl.pathname !== window.location.pathname) return;
+
+      const target = document.querySelector(hash);
       if (!target) return;
 
       e.preventDefault();
-
-      const targetPosition = target.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+      // Hash setzen — Browser scrollt nativ mit CSS scroll-behavior: smooth
+      history.pushState(null, '', hash);
+      target.scrollIntoView();
     });
   });
 });
