@@ -155,20 +155,28 @@
   top: 100%;
   left: 0;
   width: 100%;
+  max-height: 0;
+  overflow: hidden;
   background-color: rgba(14, 22, 16, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 12px 0 24px;
+  padding: 0;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
   transform: translateY(-10px);
   opacity: 0;
-  transition: var(--transition);
+  pointer-events: none;
+  visibility: hidden;
+  transition: var(--transition), max-height var(--duration) var(--ease-out), padding var(--duration) var(--ease-out);
   border-bottom: 1px solid var(--color-border);
 }
 
 .navbar__mobile-menu--open {
+  max-height: 500px;
+  padding: 12px 0 24px;
   transform: translateY(0);
   opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .navbar__mobile-menu ul {
