@@ -14,6 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   banner.style.display = '';
+  document.body.classList.add('has-cookie-banner');
+
+  const hideBanner = () => {
+    banner.style.display = 'none';
+    document.body.classList.remove('has-cookie-banner');
+  };
 
   const acceptBtn = document.getElementById('cookie-accept');
   const rejectBtn = document.getElementById('cookie-reject');
@@ -21,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
-      banner.style.display = 'none';
+      hideBanner();
     });
   }
 
   if (rejectBtn) {
     rejectBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'rejected');
-      banner.style.display = 'none';
+      hideBanner();
     });
   }
 });

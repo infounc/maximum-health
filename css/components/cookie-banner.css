@@ -60,6 +60,13 @@
   }
 }
 
+/* Prevent cookie banner from blocking footer links on mobile */
+@media (max-width: 768px) {
+  body.has-cookie-banner {
+    padding-bottom: 120px;
+  }
+}
+
 @media (max-width: 480px) {
   .cookie-banner {
     bottom: 12px;

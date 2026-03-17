@@ -48,10 +48,24 @@ bash scripts/check-sync.sh
 ### Seiten
 
 - `index.html` — Hauptseite (Hero, Therapien, Profil, Preise, Coaching, Reviews, Kontakt)
+- `blog.html` — Blog-Übersichtsseite mit Artikel-Cards
+- `blog/schroepftherapie-wirkung-ablauf.html` — Artikel: Schröpftherapie
+- `blog/rueckenschmerzen-natuerlich-behandeln.html` — Artikel: Rückenschmerzen
+- `blog/tiefenmuskulaturtherapie-stress.html` — Artikel: Tiefenmuskulaturtherapie
+- `blog/nackenverspannungen-loesen.html` — Artikel: Nackenverspannungen lösen
+- `blog/faszientherapie-wirkung-behandlung.html` — Artikel: Faszientherapie
+- `blog/verklebte-faszien-symptome-behandlung.html` — Artikel: Verklebte Faszien
+- `blog/muskelverhaertungen-loesen.html` — Artikel: Muskelverhärtungen lösen
+- `blog/durchblutung-foerdern.html` — Artikel: Durchblutung fördern
 - `gutschein.html` — Gutschein-Bestellformular
 - `sparpaket.html` — Sparpaket-Bestellformular
 - `impressum.html` — Impressum
 - `datenschutz.html` — Datenschutzerklärung
+
+### SEO
+
+- `robots.txt` — Crawler-Anweisungen
+- `sitemap.xml` — Sitemap mit allen 13 Seiten + 1 Listing
 
 ### JavaScript
 
