@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maximum Health — Therapiepraxis Maximilian Mix</title>
-  <meta name="description" content="Therapiepraxis für Manuelle Gelenktherapie, Schröpftherapie, Tiefenmuskulaturtherapie und mehr in Bönningstedt bei Hamburg.">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <title>Therapiepraxis Bönningstedt bei Hamburg | Schröpftherapie &amp; Faszientherapie — Maximum Health</title>
+  <meta name="description" content="Therapiepraxis in Bönningstedt bei Hamburg. Schröpftherapie, Faszientherapie, Manuelle Gelenktherapie &amp; mehr. Jetzt Termin buchen ✆ 0176 82049885">
+  <link rel="canonical" href="https://maximum-health.de/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Therapiepraxis Bönningstedt bei Hamburg | Schröpftherapie &amp; Faszientherapie — Maximum Health">
+  <meta property="og:description" content="Therapiepraxis in Bönningstedt bei Hamburg. Schröpftherapie, Faszientherapie, Manuelle Gelenktherapie &amp; mehr. Jetzt Termin buchen ✆ 0176 82049885">
+  <meta property="og:image" content="https://maximum-health.de/images/logo-white.png">
+  <meta property="og:url" content="https://maximum-health.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Therapiepraxis Bönningstedt bei Hamburg | Schröpftherapie &amp; Faszientherapie — Maximum Health">
+  <meta name="twitter:description" content="Therapiepraxis in Bönningstedt bei Hamburg. Schröpftherapie, Faszientherapie, Manuelle Gelenktherapie &amp; mehr. Jetzt Termin buchen ✆ 0176 82049885">
+  <meta name="twitter:image" content="https://maximum-health.de/images/logo-white.png">
+
   <!-- SHARED:HEAD-CSS:START -->
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/reset.css">
@@ -14,6 +31,12 @@
   <link rel="stylesheet" href="css/components/cookie-banner.css">
   <!-- SHARED:HEAD-CSS:END -->
   <link rel="stylesheet" href="css/components/hero.css">
+  <noscript>
+    <style>
+      .hero__bg img { opacity: 1 !important; transform: none !important; animation: none !important; }
+      .hero__label, .hero__title, .hero__subtitle, .hero__cta-wrap, .hero__scroll { opacity: 1 !important; transform: none !important; animation: none !important; }
+    </style>
+  </noscript>
   <script>
     // Lock viewport height as CSS custom property BEFORE first paint
     // Prevents mobile hero jump from address bar resize
@@ -33,47 +56,171 @@
   <link rel="stylesheet" href="css/components/contact.css">
   <link rel="stylesheet" href="css/components/footer.css">
   <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/blog.css">
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Maximum Health",
+    "description": "Therapiepraxis für Manuelle Gelenktherapie, Schröpftherapie, Tiefenmuskulaturtherapie und mehr in Bönningstedt bei Hamburg.",
+    "url": "https://maximum-health.de",
+    "telephone": "+49 176 82049885",
+    "email": "info@maximum-health.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hasloher Weg 3",
+      "addressLocality": "Bönningstedt",
+      "postalCode": "25474",
+      "addressCountry": "DE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Maximilian Mix",
+      "jobTitle": "Therapeut"
+    },
+    "image": "https://maximum-health.de/images/logo-white.png",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "bestRating": "5",
+      "ratingCount": "12"
+    },
+    "priceRange": "€€",
+    "sameAs": ["https://www.instagram.com/maximum_health.de/"],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 53.66,
+      "longitude": 9.92
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Hamburg"},
+      {"@type": "City", "name": "Bönningstedt"},
+      {"@type": "AdministrativeArea", "name": "Kreis Pinneberg"}
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "position": 1,
+        "name": "Manuelle Gelenktherapie",
+        "description": "Wiederherstellung der optimalen Funktion und Beweglichkeit von Gelenken durch gezielte Handgriffe.",
+        "provider": {"@type": "HealthAndBeautyBusiness", "name": "Maximum Health"},
+        "areaServed": "Hamburg",
+        "offers": {"@type": "Offer", "price": "75", "priceCurrency": "EUR", "description": "Ab 75 € (20 Min.)"}
+      },
+      {
+        "@type": "Service",
+        "position": 2,
+        "name": "Schröpftherapie",
+        "description": "Traditionelle Methode mit Schröpfgläsern zur Förderung der Durchblutung und Lösung von Verspannungen.",
+        "provider": {"@type": "HealthAndBeautyBusiness", "name": "Maximum Health"},
+        "areaServed": "Hamburg",
+        "offers": {"@type": "Offer", "price": "229", "priceCurrency": "EUR", "description": "Im Pro-Paket ab 229 € (75 Min.)"}
+      },
+      {
+        "@type": "Service",
+        "position": 3,
+        "name": "Tiefenmuskulaturtherapie",
+        "description": "Intensive Techniken zur Lösung tiefliegender Spannungen in der Muskulatur und Linderung chronischer Schmerzen.",
+        "provider": {"@type": "HealthAndBeautyBusiness", "name": "Maximum Health"},
+        "areaServed": "Hamburg",
+        "offers": {"@type": "Offer", "price": "229", "priceCurrency": "EUR", "description": "Im Pro-Paket ab 229 € (75 Min.)"}
+      },
+      {
+        "@type": "Service",
+        "position": 4,
+        "name": "Triggerpunkttherapie",
+        "description": "Gezielte Behandlung von Triggerpunkten, die oft die Ursache für ausstrahlende Schmerzen sind.",
+        "provider": {"@type": "HealthAndBeautyBusiness", "name": "Maximum Health"},
+        "areaServed": "Hamburg",
+        "offers": {"@type": "Offer", "price": "149", "priceCurrency": "EUR", "description": "Ab 149 € (45 Min.)"}
+      },
+      {
+        "@type": "Service",
+        "position": 5,
+        "name": "Dynamische Faszienmassage",
+        "description": "Spezielle Techniken zur Lösung von Verspannungen und Verklebungen in den Faszien.",
+        "provider": {"@type": "HealthAndBeautyBusiness", "name": "Maximum Health"},
+        "areaServed": "Hamburg",
+        "offers": {"@type": "Offer", "price": "269", "priceCurrency": "EUR", "description": "Im Premium-Paket ab 269 € (90 Min.)"}
+      },
+      {
+        "@type": "Service",
+        "position": 6,
+        "name": "Reflexpunkttherapie",
+        "description": "Gezielte Stimulation von Körperpunkten zur Behandlung von Kopfschmerzen und Muskelverspannungen.",
+        "provider": {"@type": "HealthAndBeautyBusiness", "name": "Maximum Health"},
+        "areaServed": "Hamburg",
+        "offers": {"@type": "Offer", "price": "269", "priceCurrency": "EUR", "description": "Im Premium-Paket ab 269 € (90 Min.)"}
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- SHARED:NAV:START -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar navbar--scrolled" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">
         <img src="images/logo-white.png" alt="Maximum Health Logo">
       </a>
       <ul class="navbar__links">
-        <li><a href="#therapien">Therapien</a></li>
-        <li><a href="#coaching">Coaching</a></li>
-        <li><a href="#ueber-uns">Über Uns</a></li>
+        <li><a href="index.html#therapien">Therapien</a></li>
+        <li><a href="index.html#coaching">Coaching</a></li>
+        <li><a href="index.html#ueber-uns">Über Uns</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#preise" class="btn btn--primary btn--nav">Termin buchen</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+        <li><a href="index.html#preise" class="btn btn--primary btn--nav">Termin buchen</a></li>
       </ul>
-      <button class="navbar__hamburger" aria-label="Menü öffnen">
+      <button type="button" class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <div class="navbar__mobile-menu">
         <ul>
-          <li><a href="#therapien">Therapien</a></li>
-          <li><a href="#coaching">Coaching</a></li>
-          <li><a href="#ueber-uns">Über Uns</a></li>
+          <li><a href="index.html#therapien">Therapien</a></li>
+          <li><a href="index.html#coaching">Coaching</a></li>
+          <li><a href="index.html#ueber-uns">Über Uns</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#preise">Termin buchen</a></li>
+          <li><a href="index.html#kontakt">Kontakt</a></li>
+          <li><a href="index.html#preise">Termin buchen</a></li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- SHARED:NAV:END -->
 
+  <main>
   <!-- Hero Section -->
   <section id="hero" class="hero">
     <!-- Parallax depth layers -->
     <div class="hero__depth-layer hero__depth-layer--far"></div>
     <div class="hero__depth-layer hero__depth-layer--mid"></div>
     <div class="hero__bg">
-      <img src="images/portrait_mh1.jpeg" alt="" loading="eager">
+      <img src="images/portrait_mh1.jpeg" alt="Therapeut Maximilian Mix in seiner Praxis Maximum Health" width="2150" height="1200" loading="eager">
     </div>
     <div class="hero__depth-layer hero__depth-layer--near"></div>
     <div class="hero__light-sweep" aria-hidden="true"></div>
@@ -105,6 +252,7 @@
             <h3 class="therapy-card__title">Manuelle Gelenktherapie</h3>
             <p class="therapy-card__description">Diese Technik konzentriert sich auf die Wiederherstellung der optimalen Funktion und Beweglichkeit von Gelenken. Durch gezielte Handgriffe löse ich Gelenkblockaden und verbessere so die Beweglichkeit.</p>
             <div class="therapy-card__line"></div>
+            <a href="blog/rueckenschmerzen-natuerlich-behandeln.html" class="therapy-card__link">Mehr erfahren →</a>
           </div>
         </div>
 
@@ -118,6 +266,7 @@
             <h3 class="therapy-card__title">Schröpftherapie</h3>
             <p class="therapy-card__description">Eine traditionelle Methode, die durch das Anlegen von Schröpfgläsern auf der Haut funktioniert. Dies fördert die Durchblutung, löst Verspannungen und aktiviert tiefere Heilungsprozesse.</p>
             <div class="therapy-card__line"></div>
+            <a href="blog/schroepftherapie-wirkung-ablauf.html" class="therapy-card__link">Mehr erfahren →</a>
           </div>
         </div>
 
@@ -131,6 +280,7 @@
             <h3 class="therapy-card__title">Tiefenmuskulaturtherapie</h3>
             <p class="therapy-card__description">Diese Therapie zielt darauf ab, tiefliegende Spannungen in der Muskulatur zu lösen. Intensive Techniken erreichen tiefe Muskelschichten zur Linderung chronischer Schmerzen.</p>
             <div class="therapy-card__line"></div>
+            <a href="blog/tiefenmuskulaturtherapie-stress.html" class="therapy-card__link">Mehr erfahren →</a>
           </div>
         </div>
 
@@ -144,6 +294,7 @@
             <h3 class="therapy-card__title">Triggerpunkttherapie</h3>
             <p class="therapy-card__description">Durch Druck und spezielle Techniken behandle ich Triggerpunkte, die oft die Ursache für ausstrahlende Schmerzen und chronische Beschwerden sind — gezielt und nachhaltig.</p>
             <div class="therapy-card__line"></div>
+            <a href="blog/muskelverhaertungen-loesen.html" class="therapy-card__link">Mehr erfahren →</a>
           </div>
         </div>
 
@@ -157,6 +308,7 @@
             <h3 class="therapy-card__title">Dynamische Faszienmassage</h3>
             <p class="therapy-card__description">Spezielle Techniken lösen Verspannungen und Verklebungen in den Faszien. Dies fördert die Beweglichkeit, verringert Schmerzen und steigert das allgemeine Wohlbefinden.</p>
             <div class="therapy-card__line"></div>
+            <a href="blog/faszientherapie-wirkung-behandlung.html" class="therapy-card__link">Mehr erfahren →</a>
           </div>
         </div>
 
@@ -190,7 +342,7 @@
           <a href="#preise" class="btn btn--primary profile__cta">Termin buchen</a>
         </div>
         <div class="profile__photo reveal reveal--delay-2">
-          <img src="images/therapist.png" alt="Maximilian Mix — Therapeut">
+          <img src="images/therapist.png" alt="Maximilian Mix — Therapeut" width="1000" height="1000" loading="lazy">
         </div>
       </div>
     </div>
@@ -199,8 +351,8 @@
   <!-- Pricing Section -->
   <section id="preise" class="section section--sage-tint">
     <div class="container">
-      <h2 class="section__heading text-center reveal">Wählen Sie Ihr Therapiepaket</h2>
-      <p class="section__subheading text-center reveal reveal--delay-1">Finden Sie das ideale Paket aus unseren maßgeschneiderten Therapieangeboten, abgestimmt auf Ihre spezifischen Gesundheitsbedürfnisse und Ziele.</p>
+      <h2 class="section__heading text-center reveal">Therapiepakete</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Von der gezielten Kurzbehandlung bis zur umfassenden Ganzkörpertherapie — wählen Sie das Paket, das zu Ihren Beschwerden passt.</p>
       <div class="pricing__grid">
 
         <div class="pricing-card reveal reveal--delay-1">
@@ -208,12 +360,15 @@
             <span class="pricing-card__duration">20 Min.</span>
             <h3 class="pricing-card__title">Basic</h3>
             <div class="pricing-card__price">75 <span>€</span></div>
+            <span class="pricing-card__per">pro Sitzung</span>
+            <p class="pricing-card__desc">Gezielte Soforthilfe bei akuten Gelenkbeschwerden</p>
           </div>
           <div class="pricing-card__body">
             <ul class="pricing-card__features">
               <li>Manuelle Gelenktherapie</li>
+              <li>Gelenkmobilisation &amp; Blockadenlösung</li>
             </ul>
-            <a href="https://calendly.com/maximum-health/basic" class="btn btn--outline" target="_blank" rel="noopener">Termin buchen</a>
+            <a href="https://calendly.com/maximum-health/basic" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Termin buchen</a>
           </div>
         </div>
 
@@ -222,22 +377,46 @@
             <span class="pricing-card__duration">45 Min.</span>
             <h3 class="pricing-card__title">Basic Plus</h3>
             <div class="pricing-card__price">149 <span>€</span></div>
+            <span class="pricing-card__per">pro Sitzung</span>
+            <p class="pricing-card__desc">Erweiterte Behandlung bei Verspannungen und Schmerzen</p>
           </div>
           <div class="pricing-card__body">
             <ul class="pricing-card__features">
               <li>Manuelle Gelenktherapie</li>
               <li>Triggerpunkttherapie</li>
+              <li>Behandlung ausstrahlender Schmerzen</li>
             </ul>
-            <a href="https://calendly.com/maximum-health/basic-plus" class="btn btn--outline" target="_blank" rel="noopener">Termin buchen</a>
+            <a href="https://calendly.com/maximum-health/basic-plus" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Termin buchen</a>
           </div>
         </div>
 
-        <div class="pricing-card pricing-card--featured reveal reveal--delay-3">
+        <div class="pricing-card reveal reveal--delay-3">
+          <div class="pricing-card__head">
+            <span class="pricing-card__duration">75 Min.</span>
+            <h3 class="pricing-card__title">Pro</h3>
+            <div class="pricing-card__price">229 <span>€</span></div>
+            <span class="pricing-card__per">pro Sitzung</span>
+            <p class="pricing-card__desc">Ganzheitliche Therapie für chronische und tieferliegende Beschwerden</p>
+          </div>
+          <div class="pricing-card__body">
+            <ul class="pricing-card__features">
+              <li>Manuelle Gelenktherapie</li>
+              <li>Triggerpunkttherapie</li>
+              <li>Tiefenmuskulaturtherapie</li>
+              <li>Schröpftherapie</li>
+            </ul>
+            <a href="https://calendly.com/maximum-health/pro" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Termin buchen</a>
+          </div>
+        </div>
+
+        <div class="pricing-card pricing-card--featured reveal reveal--delay-4">
           <div class="pricing-card__head">
             <span class="pricing-card__badge">Beliebt</span>
             <span class="pricing-card__duration">90 Min.</span>
             <h3 class="pricing-card__title">Premium</h3>
             <div class="pricing-card__price">269 <span>€</span></div>
+            <span class="pricing-card__per">pro Sitzung</span>
+            <p class="pricing-card__desc">Das komplette Programm — alle Therapien in einer intensiven Sitzung</p>
           </div>
           <div class="pricing-card__body">
             <ul class="pricing-card__features">
@@ -248,24 +427,7 @@
               <li>Dynamische Faszienmassage</li>
               <li>Reflexpunkttherapie</li>
             </ul>
-            <a href="https://calendly.com/maximum-health/premium" class="btn btn--primary" target="_blank" rel="noopener">Termin buchen</a>
-          </div>
-        </div>
-
-        <div class="pricing-card reveal reveal--delay-4">
-          <div class="pricing-card__head">
-            <span class="pricing-card__duration">75 Min.</span>
-            <h3 class="pricing-card__title">Pro</h3>
-            <div class="pricing-card__price">229 <span>€</span></div>
-          </div>
-          <div class="pricing-card__body">
-            <ul class="pricing-card__features">
-              <li>Manuelle Gelenktherapie</li>
-              <li>Triggerpunkttherapie</li>
-              <li>Tiefenmuskulaturtherapie</li>
-              <li>Schröpftherapie</li>
-            </ul>
-            <a href="https://calendly.com/maximum-health/pro" class="btn btn--outline" target="_blank" rel="noopener">Termin buchen</a>
+            <a href="https://calendly.com/maximum-health/premium" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Termin buchen</a>
           </div>
         </div>
 
@@ -296,7 +458,7 @@
                 <span class="coaching-card__price">129 <span>€</span></span>
                 <span class="coaching-card__duration">60 Min.</span>
               </div>
-              <a href="https://calendly.com/maximum-health/lebensfunke" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener">Buchen</a>
+              <a href="https://calendly.com/maximum-health/lebensfunke" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener noreferrer">Buchen</a>
             </div>
           </div>
         </div>
@@ -317,7 +479,7 @@
                 <span class="coaching-card__price">189 <span>€</span></span>
                 <span class="coaching-card__duration">90 Min.</span>
               </div>
-              <a href="https://calendly.com/maximum-health/balancequelle" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener">Buchen</a>
+              <a href="https://calendly.com/maximum-health/balancequelle" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener noreferrer">Buchen</a>
             </div>
           </div>
         </div>
@@ -338,7 +500,7 @@
                 <span class="coaching-card__price">249 <span>€</span></span>
                 <span class="coaching-card__duration">120 Min.</span>
               </div>
-              <a href="https://calendly.com/maximum-health/seelenkompass" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener">Buchen</a>
+              <a href="https://calendly.com/maximum-health/seelenkompass" class="btn btn--outline coaching-card__btn" target="_blank" rel="noopener noreferrer">Buchen</a>
             </div>
           </div>
         </div>
@@ -426,7 +588,7 @@
                 <span class="spirit__price-duration">/ 60 Min.</span>
               </div>
             </div>
-            <a href="https://calendly.com/maximum-health/spirit" class="btn btn--primary btn--large" target="_blank" rel="noopener">Jetzt Termin buchen</a>
+            <a href="https://calendly.com/maximum-health/spirit" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Jetzt Termin buchen</a>
           </div>
         </div>
       </div>
@@ -502,6 +664,74 @@
           </div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog-Teaser Section -->
+  <section class="section section--sage-tint home-blog">
+    <div class="container">
+      <h2 class="section__heading text-center reveal">Gesundheitswissen aus der Praxis</h2>
+      <p class="section__subheading text-center reveal reveal--delay-1">Fundierte Artikel zu Verspannungen, Schmerztherapie und ganzheitlicher Behandlung — von unserem Therapeuten für Sie aufbereitet.</p>
+
+      <div class="home-blog__grid">
+
+        <a href="blog/schroepftherapie-wirkung-ablauf.html" class="blog-card reveal">
+          <img src="images/blog/placeholder-blog.svg" alt="Schröpfgläser auf dem Rücken eines Patienten" class="blog-card__image" loading="lazy">
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__category">Therapie</span>
+              <span>8 Min. Lesezeit</span>
+            </div>
+            <h3 class="blog-card__title">Schröpftherapie: Wirkung, Ablauf und Vorteile</h3>
+            <p class="blog-card__excerpt">Wie funktioniert Schröpfen, bei welchen Beschwerden hilft es und was erwartet Sie bei einer Behandlung?</p>
+            <span class="blog-card__link">Weiterlesen</span>
+          </div>
+        </a>
+
+        <a href="blog/rueckenschmerzen-natuerlich-behandeln.html" class="blog-card reveal reveal--delay-1">
+          <img src="images/blog/placeholder-blog.svg" alt="Therapeutische Behandlung bei Rückenschmerzen" class="blog-card__image" loading="lazy">
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__category">Schmerztherapie</span>
+              <span>10 Min. Lesezeit</span>
+            </div>
+            <h3 class="blog-card__title">Rückenschmerzen natürlich behandeln: 5 ganzheitliche Therapieansätze</h3>
+            <p class="blog-card__excerpt">Von manueller Gelenktherapie bis Schröpfen — fünf bewährte Methoden, die bei Rückenschmerzen nachhaltig helfen.</p>
+            <span class="blog-card__link">Weiterlesen</span>
+          </div>
+        </a>
+
+        <a href="blog/nackenverspannungen-loesen.html" class="blog-card reveal reveal--delay-2">
+          <img src="images/blog/placeholder-blog.svg" alt="Nackenverspannungen lösen durch Therapie" class="blog-card__image" loading="lazy">
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__category">Schmerztherapie</span>
+              <span>10 Min. Lesezeit</span>
+            </div>
+            <h3 class="blog-card__title">Nackenverspannungen lösen: Ursachen, Therapie & Sofort-Tipps</h3>
+            <p class="blog-card__excerpt">Nackenschmerzen und steifer Nacken? Erfahren Sie die Ursachen, bewährte Therapiemethoden und Sofort-Tipps gegen Nackenverspannungen.</p>
+            <span class="blog-card__link">Weiterlesen</span>
+          </div>
+        </a>
+
+        <a href="blog/faszientherapie-wirkung-behandlung.html" class="blog-card reveal reveal--delay-3">
+          <img src="images/blog/placeholder-blog.svg" alt="Faszientherapie Wirkung und Behandlung" class="blog-card__image" loading="lazy">
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span class="blog-card__category">Therapie</span>
+              <span>9 Min. Lesezeit</span>
+            </div>
+            <h3 class="blog-card__title">Faszientherapie: Wirkung, Behandlung & Kosten</h3>
+            <p class="blog-card__excerpt">Was ist Faszientherapie, wie wirkt sie und für wen ist sie geeignet? Ein umfassender Leitfaden über Faszienbehandlung.</p>
+            <span class="blog-card__link">Weiterlesen</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="text-center home-blog__cta">
+        <a href="blog.html" class="btn btn--outline reveal">Alle Artikel entdecken</a>
       </div>
     </div>
   </section>
@@ -691,7 +921,7 @@
             </svg>
 
           </div>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Hasloher+Weg+3%2C+25474+B%C3%B6nningstedt" target="_blank" rel="noopener" class="contact__map-route-btn" aria-label="Route zu Maximum Health auf Google Maps planen">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Hasloher+Weg+3%2C+25474+B%C3%B6nningstedt" target="_blank" rel="noopener noreferrer" class="contact__map-route-btn" aria-label="Route zu Maximum Health auf Google Maps planen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="10" height="10"><path d="M3 12h18m-6-6 6 6-6 6"/></svg>
             Route planen
           </a>
@@ -700,51 +930,62 @@
       </div>
     </div>
   </section>
+  </main>
 
-  <!-- SHARED:FOOTER:START -->
-  <footer class="footer">
+<!-- SHARED:FOOTER:START -->
+  <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
-          <img src="images/logo-footer-white.png" alt="Maximum Health" class="footer__logo">
+          <a href="index.html" aria-label="Maximum Health Startseite">
+            <img src="images/logo-footer-white.png" alt="Maximum Health — Therapiepraxis Bönningstedt" class="footer__logo" width="180" height="50" loading="lazy">
+          </a>
           <p class="footer__tagline">Ihr Weg zur ganzheitlichen Gesundheit.</p>
+          <address class="footer__contact footer__address">
+            Hasloher Weg 3, 25474 Bönningstedt<br>
+            <a href="tel:+4917682049885">0176 82049885</a><br>
+            <a href="mailto:info@maximum-health.de">info@maximum-health.de</a>
+          </address>
           <div class="footer__social">
-            <a href="https://www.instagram.com/maximum_health.de/" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://www.instagram.com/maximum_health.de/" target="_blank" rel="noopener noreferrer" aria-label="Maximum Health auf Instagram">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
           </div>
         </div>
-        <div class="footer__nav">
+        <nav class="footer__nav" aria-label="Footer-Navigation">
           <div class="footer__col">
-            <h4 class="footer__col-title">Praxis</h4>
+            <h4 class="footer__col-title">Therapien</h4>
             <ul class="footer__col-links">
-              <li><a href="#therapien">Therapien</a></li>
-              <li><a href="#ueber-uns">Über Uns</a></li>
-              <li><a href="#preise">Preise & Pakete</a></li>
-              <li><a href="#kontakt">Kontakt</a></li>
-              <li><a href="blog.html">Blog</a></li>
+              <li><a href="index.html#therapien">Alle Therapien</a></li>
+              <li><a href="blog/schroepftherapie-wirkung-ablauf.html">Schröpftherapie</a></li>
+              <li><a href="blog/faszientherapie-wirkung-behandlung.html">Faszientherapie</a></li>
+              <li><a href="blog/rueckenschmerzen-natuerlich-behandeln.html">Rückenschmerzen</a></li>
+              <li><a href="blog/nackenverspannungen-loesen.html">Nackenverspannungen</a></li>
             </ul>
           </div>
           <div class="footer__col">
             <h4 class="footer__col-title">Angebote</h4>
             <ul class="footer__col-links">
-              <li><a href="#coaching">Online-Coaching</a></li>
-              <li><a href="#spirit">Spirit-Coaching</a></li>
+              <li><a href="index.html#coaching">Online-Coaching</a></li>
+              <li><a href="index.html#spirit">Spirit-Coaching</a></li>
               <li><a href="sparpaket.html">5er-Sparpaket</a></li>
               <li><a href="gutschein.html">Gutschein verschenken</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">Rechtliches</h4>
+            <h4 class="footer__col-title">Über uns</h4>
             <ul class="footer__col-links">
+              <li><a href="index.html#ueber-uns">Therapeut</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="index.html#kontakt">Kontakt</a></li>
               <li><a href="impressum.html">Impressum</a></li>
               <li><a href="datenschutz.html">Datenschutz</a></li>
             </ul>
           </div>
-        </div>
+        </nav>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2025 Maximum Health — Maximilian Mix</p>
+        <p class="footer__copy">&copy; 2025 Maximum Health — Maximilian Mix. Therapiepraxis in Bönningstedt bei Hamburg.</p>
       </div>
     </div>
   </footer>
@@ -755,8 +996,8 @@
     <div class="cookie-banner__inner">
       <p class="cookie-banner__text">Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern.</p>
       <div class="cookie-banner__actions">
-        <button class="btn btn--primary" id="cookie-accept">Akzeptieren</button>
-        <button class="btn btn--outline" id="cookie-reject">Ablehnen</button>
+        <button type="button" class="btn btn--primary" id="cookie-accept">Akzeptieren</button>
+        <button type="button" class="btn btn--outline" id="cookie-reject">Ablehnen</button>
       </div>
     </div>
   </div>
