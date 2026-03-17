@@ -1,108 +1,284 @@
 /* ==========================================================================
-   Contact Section — Dark theme with sage accents
+   Contact Section — Glassmorphism Cards + Map
    ========================================================================== */
 
 .contact__grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 32px;
+  align-items: stretch;
 }
 
-/* ---- Contact Info ---- */
-.contact__info {
+/* ---- Cards Column ---- */
+.contact__cards {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: var(--color-text-muted);
-  font-weight: 300;
+  gap: 16px;
 }
 
-.contact__info p {
-  padding: 24px;
-  border: 1px solid rgba(107, 143, 113, 0.1);
-  border-radius: var(--card-radius);
-  transition: var(--transition);
+/* ---- Single Contact Card ---- */
+.contact__card {
   position: relative;
-  background-color: var(--color-bg-card);
-  margin-bottom: 16px;
-}
-
-.contact__info p:last-child {
-  margin-bottom: 0;
-}
-
-/* Sage left accent */
-.contact__info p::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 20%;
-  bottom: 20%;
-  width: 3px;
-  background: var(--color-sage);
-  border-radius: 0 3px 3px 0;
-  opacity: 0.4;
-  transition: var(--transition), top var(--duration) var(--ease-out), bottom var(--duration) var(--ease-out);
-}
-
-.contact__info p:hover {
-  background-color: var(--color-bg-card-hover);
-  border-color: transparent;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-}
-
-.contact__info p:hover::before {
-  opacity: 1;
-  background: var(--color-gold);
-  top: 15%;
-  bottom: 15%;
-}
-
-.contact__info strong {
-  font-weight: 600;
-  color: var(--color-sage-light);
-  margin-right: 8px;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.contact__info a {
-  color: var(--color-gold);
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: var(--transition-fast);
-}
-
-.contact__info a:hover {
-  border-bottom-color: var(--color-gold);
-}
-
-/* ---- Map ---- */
-.contact__map {
-  width: 100%;
   border-radius: var(--card-radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(107, 143, 113, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 38, 29, 0.8) 0%,
+    rgba(30, 46, 34, 0.6) 50%,
+    rgba(26, 38, 29, 0.8) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform var(--duration) var(--ease-out),
+              box-shadow var(--duration) var(--ease-out),
+              border-color var(--duration) var(--ease-out);
+}
+
+.contact__card-inner {
+  position: relative;
+  z-index: 2;
+  padding: 28px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ---- Corner glow ---- */
+.contact__card-glow {
+  position: absolute;
+  top: -60%;
+  right: -40%;
+  width: 70%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(107, 143, 113, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: 1;
+  transition: opacity 0.6s var(--ease-out),
+              transform 0.6s var(--ease-out);
+  pointer-events: none;
+}
+
+.contact__card:hover .contact__card-glow {
+  opacity: 1.5;
+  transform: scale(1.3);
+  background: radial-gradient(
+    circle,
+    rgba(212, 168, 67, 0.12) 0%,
+    rgba(107, 143, 113, 0.05) 50%,
+    transparent 70%
+  );
+}
+
+/* ---- Bottom accent line ---- */
+.contact__card-line {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-sage-muted),
+    transparent
+  );
+  transition: all 0.5s var(--ease-out);
+  z-index: 3;
+}
+
+.contact__card:hover .contact__card-line {
+  left: 5%;
+  right: 5%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(212, 168, 67, 0.3);
+}
+
+/* ---- Hover ---- */
+.contact__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(107, 143, 113, 0.2);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(107, 143, 113, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* ---- Icon ---- */
+.contact__card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--card-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 143, 113, 0.12),
+    rgba(107, 143, 113, 0.04)
+  );
+  border: 1px solid rgba(107, 143, 113, 0.1);
+  flex-shrink: 0;
+  transition: all 0.4s var(--ease-out);
+}
+
+.contact__card-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--color-sage-light);
+  transition: all 0.4s var(--ease-out);
+}
+
+.contact__card:hover .contact__card-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 168, 67, 0.15),
+    rgba(212, 168, 67, 0.05)
+  );
+  border-color: rgba(212, 168, 67, 0.2);
+  box-shadow: 0 0 20px rgba(212, 168, 67, 0.1);
+}
+
+.contact__card:hover .contact__card-icon svg {
+  color: var(--color-gold);
+  filter: drop-shadow(0 0 8px rgba(212, 168, 67, 0.3));
+  transform: scale(1.1) rotate(3deg);
+}
+
+/* ---- Content ---- */
+.contact__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact__card-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  transition: color 0.4s var(--ease-out);
+}
+
+.contact__card:hover .contact__card-label {
+  color: var(--color-gold);
+}
+
+.contact__card-value {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.5;
+}
+
+a.contact__card-value {
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out);
+}
+
+a.contact__card-value:hover {
+  color: var(--color-gold);
+}
+
+/* ---- Map Wrapper ---- */
+.contact__map-wrapper {
+  position: relative;
+  border-radius: var(--card-radius-lg);
+  overflow: hidden;
+}
+
+.contact__map-glow {
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(107, 143, 113, 0.08) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact__map {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border-radius: var(--card-radius-lg);
+  overflow: hidden;
   border: 1px solid rgba(107, 143, 113, 0.12);
   position: relative;
+  z-index: 1;
   transition: var(--transition);
+  box-shadow: var(--shadow-lg);
 }
 
 .contact__map:hover {
-  border-color: rgba(107, 143, 113, 0.2);
+  border-color: rgba(107, 143, 113, 0.25);
   box-shadow: var(--shadow-xl);
 }
 
 .contact__map iframe {
   display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+/* ---- Custom SVG Map ---- */
+.contact__map--svg {
+  position: relative;
+}
+
+.contact__map--svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+}
+
+.contact__map-route-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-bg-deep);
+  background: var(--color-gold);
+  border: none;
+  box-shadow: 0 2px 8px rgba(212, 168, 67, 0.2);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+  line-height: 1;
+}
+
+.contact__map-route-btn:hover {
+  background: #e0b53e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(212, 168, 67, 0.3);
+  color: var(--color-bg-deep);
 }
 
 /* ==========================================================================
@@ -112,16 +288,59 @@
 @media (max-width: 768px) {
   .contact__grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
+  }
+
+  .contact__cards {
+    gap: 12px;
+  }
+
+  .contact__card-inner {
+    padding: 24px 24px;
+  }
+
+  .contact__map,
+  .contact__map iframe,
+  .contact__map--svg svg {
+    min-height: 320px;
   }
 }
 
 @media (max-width: 480px) {
-  .contact__info p {
+  .contact__card-inner {
     padding: 20px;
+    gap: 16px;
   }
 
-  .contact__map iframe {
-    height: 280px;
+  .contact__card-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .contact__card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact__card-value {
+    font-size: 0.88rem;
+  }
+
+  .contact__map,
+  .contact__map iframe,
+  .contact__map--svg svg {
+    min-height: 280px;
+  }
+
+  .contact__map-route-btn {
+    font-size: 0.65rem;
+  }
+
+  .contact__card-line {
+    display: none;
+  }
+
+  .contact__card-glow {
+    display: none;
   }
 }
