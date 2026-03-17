@@ -57,6 +57,9 @@ bash scripts/check-sync.sh
 - `blog/verklebte-faszien-symptome-behandlung.html` — Artikel: Verklebte Faszien
 - `blog/muskelverhaertungen-loesen.html` — Artikel: Muskelverhärtungen lösen
 - `blog/durchblutung-foerdern.html` — Artikel: Durchblutung fördern
+- `blog/verspannungen-loesen.html` — Artikel: Verspannungen lösen
+- `blog/schroepfen-ruecken.html` — Artikel: Schröpfen am Rücken
+- `therapie-hamburg.html` — Lokale Landing Page (Therapiepraxis Hamburg/Bönningstedt)
 - `gutschein.html` — Gutschein-Bestellformular
 - `sparpaket.html` — Sparpaket-Bestellformular
 - `impressum.html` — Impressum

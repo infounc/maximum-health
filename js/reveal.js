@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const elements = document.querySelectorAll('.reveal');
   if (!elements.length) return;
 
+  // Bei reduzierter Bewegung alle Elemente sofort sichtbar machen
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    elements.forEach((el) => el.classList.add('reveal--visible'));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -16,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     },
     {
-      threshold: 0.05,
-      rootMargin: '0px 0px -80px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -120px 0px'
     }
   );
 

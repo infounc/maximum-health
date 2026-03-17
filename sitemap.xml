@@ -2,71 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://maximum-health.de/</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/schroepftherapie-wirkung-ablauf.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/rueckenschmerzen-natuerlich-behandeln.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/tiefenmuskulaturtherapie-stress.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/nackenverspannungen-loesen.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/faszientherapie-wirkung-behandlung.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/verklebte-faszien-symptome-behandlung.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/muskelverhaertungen-loesen.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/blog/durchblutung-foerdern.html</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://maximum-health.de/therapie-hamburg.html</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://maximum-health.de/blog/verspannungen-loesen.html</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://maximum-health.de/blog/schroepfen-ruecken.html</loc>
+    <lastmod>2026-03-17</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/gutschein.html</loc>
+    <lastmod>2025-03-01</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/sparpaket.html</loc>
+    <lastmod>2025-03-01</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/impressum.html</loc>
+    <lastmod>2025-03-01</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://maximum-health.de/datenschutz.html</loc>
+    <lastmod>2025-03-01</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>

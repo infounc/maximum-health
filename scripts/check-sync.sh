@@ -9,9 +9,11 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
-HTML_FILES=("$PROJECT_DIR"/*.html)
+ROOT_HTML_FILES=("$PROJECT_DIR"/*.html)
+BLOG_HTML_FILES=("$PROJECT_DIR"/blog/*.html)
 SHARED_BLOCKS=("NAV" "FOOTER" "COOKIE" "HEAD-CSS")
 
+total_files=$(( ${#ROOT_HTML_FILES[@]} + ${#BLOG_HTML_FILES[@]} ))
 errors=0
 
 for block in "${SHARED_BLOCKS[@]}"; do
@@ -21,7 +23,7 @@ for block in "${SHARED_BLOCKS[@]}"; do
   reference=""
   reference_file=""
 
-  for file in "${HTML_FILES[@]}"; do
+  for file in "${ROOT_HTML_FILES[@]}"; do
     basename="$(basename "$file")"
 
     # Block extrahieren (zwischen START und END, exklusive der Marker)
@@ -52,10 +54,38 @@ for block in "${SHARED_BLOCKS[@]}"; do
       errors=$((errors + 1))
     fi
   done
+
+  # Blog-Dateien pruefen: Pfad-Praefixe ../  werden fuer den Vergleich normalisiert
+  for file in "${BLOG_HTML_FILES[@]}"; do
+    relpath="blog/$(basename "$file")"
+
+    content=$(sed -n "/${start_tag}/,/${end_tag}/p" "$file" | sed '1d;$d')
+
+    if [ -z "$content" ]; then
+      echo "FEHLT: ${block} in ${relpath}"
+      errors=$((errors + 1))
+      continue
+    fi
+
+    # Normalisiere blog-spezifische Pfade: ../ entfernen fuer Vergleich
+    normalized=$(echo "$content" | sed 's|\.\./||g')
+    echo "$normalized" > "$TMPDIR/cur_${block}"
+
+    if [ -n "$reference" ]; then
+      if ! diff -q "$TMPDIR/ref_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
+        echo "UNTERSCHIED: ${block} — ${reference_file} vs ${relpath}"
+        diff --color=auto -u \
+          --label "${reference_file}" "$TMPDIR/ref_${block}" \
+          --label "${relpath}" "$TMPDIR/cur_${block}" || true
+        echo ""
+        errors=$((errors + 1))
+      fi
+    fi
+  done
 done
 
 if [ "$errors" -eq 0 ]; then
-  echo "OK: Alle SHARED-Blöcke sind synchron über ${#HTML_FILES[@]} Seiten."
+  echo "OK: Alle SHARED-Blöcke sind synchron über ${total_files} Seiten (${#ROOT_HTML_FILES[@]} Root + ${#BLOG_HTML_FILES[@]} Blog)."
 else
   echo ""
   echo "WARNUNG: ${errors} Abweichung(en) gefunden."

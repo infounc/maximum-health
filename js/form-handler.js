@@ -57,10 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /**
-   * Validiert alle Felder im Formular.
+   * Prueft ob das Honeypot-Feld ausgefuellt wurde (Spam-Bot-Erkennung).
+   */
+  const isSpamBot = () => {
+    const honeypot = form.querySelector('input[name="website"]');
+    return honeypot && honeypot.value !== '';
+  };
+
+  /**
+   * Validiert alle sichtbaren Felder im Formular.
    */
   const validateForm = () => {
-    const fields = form.querySelectorAll('input, textarea, select');
+    const fields = form.querySelectorAll('input:not([name="website"]), textarea, select');
     let isValid = true;
 
     fields.forEach((field) => {
@@ -81,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let bodyLines = [];
     for (const [key, value] of formData.entries()) {
+      if (key === 'website') continue; // Honeypot-Feld ausschliessen
       bodyLines.push(`${key}: ${value}`);
     }
 
@@ -90,13 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return `mailto:${MAILTO_ADDRESS}?subject=${subject}&body=${body}`;
   };
 
-  // Live-Validierung bei Eingabe
-  form.querySelectorAll('input, textarea, select').forEach((field) => {
+  // Live-Validierung bei Eingabe (Honeypot ausschliessen)
+  form.querySelectorAll('input:not([name="website"]), textarea, select').forEach((field) => {
     field.addEventListener('blur', () => {
       validateField(field);
     });
 
-    field.addEventListener('input', () => {
+    // input fuer Text-Felder, change fuer Select-Felder
+    const liveEvent = field.tagName === 'SELECT' ? 'change' : 'input';
+    field.addEventListener(liveEvent, () => {
       if (field.closest('.form-group').classList.contains('form-group--error')) {
         validateField(field);
       }
@@ -107,8 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    // Spam-Bot-Erkennung via Honeypot
+    if (isSpamBot()) return;
+
     if (!validateForm()) return;
 
+    // Submit-Button deaktivieren um Doppel-Submit zu verhindern
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet...';
+    }
+
     window.location.href = buildMailtoLink();
+
+    // Button nach kurzer Verzoegerung wieder aktivieren (mailto oeffnet externes Programm)
+    setTimeout(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = form.id === 'gutschein-form' ? 'Gutschein buchen' : 'Paket buchen';
+      }
+    }, 2000);
   });
 });

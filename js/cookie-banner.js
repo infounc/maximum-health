@@ -6,7 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const banner = document.getElementById('cookie-banner');
   if (!banner) return;
 
-  const consent = localStorage.getItem('cookieConsent');
+  /**
+   * Sichere localStorage-Wrapper. Safari Private Browsing und andere
+   * Szenarien koennen bei localStorage-Zugriff Exceptions werfen.
+   */
+  const storage = {
+    get(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        return null;
+      }
+    },
+    set(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {
+        // localStorage nicht verfuegbar — Consent gilt nur fuer diese Session
+      }
+    }
+  };
+
+  const consent = storage.get('cookieConsent');
 
   if (consent) {
     banner.style.display = 'none';
@@ -26,14 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'accepted');
+      storage.set('cookieConsent', 'accepted');
       hideBanner();
     });
   }
 
   if (rejectBtn) {
     rejectBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'rejected');
+      storage.set('cookieConsent', 'rejected');
       hideBanner();
     });
   }

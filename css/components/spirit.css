@@ -520,7 +520,7 @@
 .spirit__cta .btn--primary:hover {
   background-color: var(--color-black);
   border-color: var(--color-black);
-  color: #E0BC5A;
+  color: var(--color-gold-light);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
   transition:
     background-color var(--duration) var(--ease-out),

@@ -54,8 +54,8 @@
 }
 
 .btn--primary:hover {
-  background-color: #E0BC5A;
-  border-color: #E0BC5A;
+  background-color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
   color: var(--color-bg-deep);
   transform: translateY(-3px);
   box-shadow: 0 8px 28px var(--color-gold-glow),
