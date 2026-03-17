@@ -437,11 +437,17 @@
     transform: none;
   }
 
-  .hero--ready .hero__label,
-  .hero--ready .hero__title,
-  .hero--ready .hero__subtitle,
+  .hero--ready .hero__label {
+    animation: heroFadeIn 2s ease-in 2s forwards;
+  }
+  .hero--ready .hero__title {
+    animation: heroFadeIn 2s ease-in 2.3s forwards;
+  }
+  .hero--ready .hero__subtitle {
+    animation: heroFadeIn 2s ease-in 2.6s forwards;
+  }
   .hero--ready .hero__cta-wrap {
-    animation-name: heroFadeIn;
+    animation: heroFadeIn 2s ease-in 2.9s forwards;
   }
 
   @keyframes heroFadeIn {
