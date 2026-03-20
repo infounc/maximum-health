@@ -22,28 +22,45 @@
   overflow: hidden;
 }
 
-/* Shine sweep on hover — uses transform for GPU-accelerated animation */
+/* Shimmer sweep — looping on primary/sage, hover-triggered on outline */
 .btn::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 60%;
-  height: 100%;
+  top: -20%;
+  left: -80%;
+  width: 55%;
+  height: 140%;
   background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 80%
   );
-  transform: translateX(-170%);
-  transition: transform 0.6s var(--ease-out);
+  transform: skewX(-18deg) translateX(0);
   pointer-events: none;
   will-change: transform;
 }
 
-.btn:hover::after {
-  transform: translateX(280%);
+/* Loop shimmer for primary CTA buttons */
+.btn--primary::after,
+.btn--sage::after {
+  animation: btnShimmer 9s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes btnShimmer {
+  0%   { transform: skewX(-18deg) translateX(-200%); }
+  100% { transform: skewX(-18deg) translateX(500%); }
+}
+
+/* Outline-Button: nur bei Hover */
+.btn--outline::after {
+  transform: skewX(-18deg) translateX(-200%);
+  transition: transform 0.7s var(--ease-out);
+}
+
+.btn--outline:hover::after {
+  transform: skewX(-18deg) translateX(300%);
 }
 
 /* ---- Primary: Gold ---- */
@@ -59,8 +76,8 @@
   color: var(--color-bg-deep);
   transform: translateY(-3px);
   box-shadow: 0 8px 28px var(--color-gold-glow),
-              0 2px 8px rgba(212, 168, 67, 0.2),
-              0 0 20px rgba(212, 168, 67, 0.1);
+              0 2px 8px rgba(var(--color-gold-rgb), 0.2),
+              0 0 20px rgba(var(--color-gold-rgb), 0.1);
 }
 
 .btn--primary:active {
@@ -100,9 +117,9 @@
   border-color: var(--color-sage-light);
   color: var(--color-bg-deep);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(107, 143, 113, 0.35),
-              0 2px 8px rgba(107, 143, 113, 0.2),
-              0 0 20px rgba(107, 143, 113, 0.1);
+  box-shadow: 0 8px 28px rgba(var(--color-sage-rgb), 0.35),
+              0 2px 8px rgba(var(--color-sage-rgb), 0.2),
+              0 0 20px rgba(var(--color-sage-rgb), 0.1);
 }
 
 .btn--sage:active {

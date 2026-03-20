@@ -13,7 +13,7 @@ Reines HTML/CSS/JS — kein Build-System, kein Bundler, kein Framework. Dateien 
 ## Lokale Vorschau
 
 ```bash
-python3 -m http.server 8080 --bind 127.0.0.1 --directory .
+python3 -m http.server 8000 --bind 127.0.0.1 --directory .
 ```
 
 ## Architektur
@@ -64,17 +64,28 @@ bash scripts/check-sync.sh
 - `sparpaket.html` — Sparpaket-Bestellformular
 - `impressum.html` — Impressum
 - `datenschutz.html` — Datenschutzerklärung
+- `404.html` — Fehlerseite (noindex)
 
 ### SEO
 
 - `robots.txt` — Crawler-Anweisungen
-- `sitemap.xml` — Sitemap mit allen 13 Seiten + 1 Listing
+- `sitemap.xml` — Sitemap mit allen 17 Seiten (ohne 404)
 
 ### JavaScript
 
-- `js/navbar.js` — Mobile-Menü, Scroll-Verhalten
+- `js/navbar.js` — Mobile-Menü, Scroll-Verhalten, Escape-Taste, aria-expanded
 - `js/smooth-scroll.js` — Smooth-Scrolling für Ankerlinks
 - `js/reveal.js` — Scroll-basierte Reveal-Animationen
 - `js/parallax.js` — Parallax-Effekte
 - `js/cookie-banner.js` — Cookie-Consent
 - `js/form-handler.js` — Formularvalidierung, mailto-Versand (Ziel: info@maximum-health.de)
+
+### Scripts
+
+- `scripts/check-sync.sh` — Prüft ob Shared Blocks (NAV, FOOTER, COOKIE, HEAD-CSS) über alle HTML-Dateien inkl. `blog/*.html` synchron sind
+- `scripts/export_blog_pdf.py` — Exportiert Blog-Artikel als PDF (Playwright-basiert)
+
+### Projekt-Dokumentation
+
+- `TODO.md` — Launch-Checkliste: offene Punkte vor Go-Live (Bilder, Content-Freigabe, Hosting, SEO)
+- `TASKS.md` — Codebase-Analyse: behobene Bugs und technische Schulden (abgeschlossen)
