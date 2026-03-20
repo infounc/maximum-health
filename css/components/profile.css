@@ -58,7 +58,7 @@
   left: -5%;
   right: -5%;
   bottom: 10%;
-  background: radial-gradient(ellipse at center, rgba(107, 143, 113, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(var(--color-sage-rgb), 0.08) 0%, transparent 70%);
   z-index: 0;
   filter: blur(40px);
   pointer-events: none;

@@ -18,7 +18,7 @@
   width: 900px;
   height: 900px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, rgba(107, 143, 113, 0.04) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--color-gold-rgb), 0.06) 0%, rgba(var(--color-sage-rgb), 0.04) 40%, transparent 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -50,7 +50,7 @@
   color: var(--color-gold);
   margin-bottom: 32px;
   padding: 8px 28px;
-  border: 1px solid rgba(212, 168, 67, 0.2);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
   border-radius: 100px;
   position: relative;
 }
@@ -61,7 +61,7 @@
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(212, 168, 67, 0.15), transparent 50%, rgba(107, 143, 113, 0.15));
+  background: linear-gradient(135deg, rgba(var(--color-gold-rgb), 0.15), transparent 50%, rgba(var(--color-sage-rgb), 0.15));
   opacity: 0;
   transition: opacity 0.6s var(--ease-out);
   z-index: -1;
@@ -88,9 +88,9 @@
   background: linear-gradient(
     135deg,
     var(--color-gold-deep) 0%,
-    #E0BC5A 25%,
-    #F5DFA0 50%,
-    #E0BC5A 75%,
+    var(--color-gold-light) 25%,
+    var(--color-gold-pale) 50%,
+    var(--color-gold-light) 75%,
     var(--color-gold-deep) 100%
   );
   background-size: 200% 100%;
@@ -116,7 +116,7 @@
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  border: 1px solid rgba(212, 168, 67, 0.08);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.08);
   pointer-events: none;
   animation: spiritRing 20s linear infinite;
 }
@@ -131,15 +131,15 @@
   width: 440px;
   height: 440px;
   border-radius: 50%;
-  border: 1px solid rgba(107, 143, 113, 0.06);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.06);
   pointer-events: none;
   animation: spiritRing 30s linear infinite reverse;
 }
 
 @keyframes spiritRing {
-  0%   { transform: translate(-50%, -50%) rotate(0deg); border-color: rgba(212, 168, 67, 0.08); }
-  50%  { border-color: rgba(107, 143, 113, 0.12); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); border-color: rgba(212, 168, 67, 0.08); }
+  0%   { transform: translate(-50%, -50%) rotate(0deg); border-color: rgba(var(--color-gold-rgb), 0.08); }
+  50%  { border-color: rgba(var(--color-sage-rgb), 0.12); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); border-color: rgba(var(--color-gold-rgb), 0.08); }
 }
 
 .spirit__hero-text {
@@ -164,7 +164,7 @@
 
 .spirit__feature {
   background-color: var(--color-bg-card);
-  border: 1px solid rgba(107, 143, 113, 0.1);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.1);
   border-radius: var(--card-radius);
   padding: 40px 28px 36px;
   text-align: center;
@@ -184,7 +184,7 @@
   left: 15%;
   right: 15%;
   height: 80px;
-  background: radial-gradient(ellipse at center top, rgba(212, 168, 67, 0.07) 0%, transparent 80%);
+  background: radial-gradient(ellipse at center top, rgba(var(--color-gold-rgb), 0.07) 0%, transparent 80%);
   opacity: 0;
   transition: opacity var(--duration) var(--ease-out);
   pointer-events: none;
@@ -202,8 +202,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(212, 168, 67, 0.06);
-  border: 1px solid rgba(212, 168, 67, 0.1);
+  background: rgba(var(--color-gold-rgb), 0.06);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.1);
   color: var(--color-gold);
   margin-bottom: 24px;
   transition: var(--transition);
@@ -217,9 +217,9 @@
 }
 
 .spirit__feature:hover .spirit__feature-icon {
-  background: rgba(212, 168, 67, 0.12);
-  border-color: rgba(212, 168, 67, 0.25);
-  box-shadow: 0 0 28px rgba(212, 168, 67, 0.12);
+  background: rgba(var(--color-gold-rgb), 0.12);
+  border-color: rgba(var(--color-gold-rgb), 0.25);
+  box-shadow: 0 0 28px rgba(var(--color-gold-rgb), 0.12);
   transform: translateY(-4px);
 }
 
@@ -229,10 +229,10 @@
 
 .spirit__feature:hover {
   background-color: var(--color-bg-card-hover);
-  border-color: rgba(212, 168, 67, 0.08);
+  border-color: rgba(var(--color-gold-rgb), 0.08);
   transform: translateY(-8px);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3),
-              0 0 0 1px rgba(212, 168, 67, 0.06);
+              0 0 0 1px rgba(var(--color-gold-rgb), 0.06);
 }
 
 .spirit__feature-title {
@@ -246,7 +246,7 @@
 }
 
 .spirit__feature:hover .spirit__feature-title {
-  background: radial-gradient(ellipse at 50% 40%, #F5DFA0 0%, var(--color-gold) 50%, var(--color-gold-deep) 100%);
+  background: radial-gradient(ellipse at 50% 40%, var(--color-gold-pale) 0%, var(--color-gold) 50%, var(--color-gold-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -273,7 +273,7 @@
   overflow: hidden;
   z-index: 1;
   box-shadow: var(--shadow-md);
-  border: 1px solid rgba(107, 143, 113, 0.1);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.1);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -288,7 +288,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, #B8923A 0%, #C49B38 20%, #D4A843 40%, #E0BC5A 60%, #D4A843 80%, #B8923A 100%);
+    linear-gradient(135deg, var(--color-gold-deep) 0%, var(--color-gold-mid) 20%, var(--color-gold) 40%, var(--color-gold-light) 60%, var(--color-gold) 80%, var(--color-gold-deep) 100%);
   opacity: 0;
   transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
   pointer-events: none;
@@ -314,9 +314,9 @@
 .spirit__cta.reveal--visible {
   border-radius: var(--card-radius-lg);
   box-shadow:
-    0 8px 40px rgba(184, 146, 58, 0.1),
+    0 8px 40px rgba(var(--color-gold-deep-rgb), 0.1),
     0 2px 12px rgba(0, 0, 0, 0.2),
-    0 0 80px rgba(212, 168, 67, 0.06),
+    0 0 80px rgba(var(--color-gold-rgb), 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -344,18 +344,18 @@
 }
 
 @keyframes ctaGlowBreathe {
-  0%   { box-shadow: 0 8px 40px rgba(184, 146, 58, 0.1), 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 0px rgba(212, 168, 67, 0), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
-  40%  { box-shadow: 0 12px 48px rgba(184, 146, 58, 0.16), 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 100px rgba(212, 168, 67, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
-  100% { box-shadow: 0 8px 40px rgba(184, 146, 58, 0.12), 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 60px rgba(212, 168, 67, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
+  0%   { box-shadow: 0 8px 40px rgba(var(--color-gold-deep-rgb), 0.1), 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 0px rgba(var(--color-gold-rgb), 0), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+  40%  { box-shadow: 0 12px 48px rgba(var(--color-gold-deep-rgb), 0.16), 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 100px rgba(var(--color-gold-rgb), 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+  100% { box-shadow: 0 8px 40px rgba(var(--color-gold-deep-rgb), 0.12), 0 2px 12px rgba(0, 0, 0, 0.2), 0 0 60px rgba(var(--color-gold-rgb), 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.12); }
 }
 
 /* Hover */
 .spirit__cta.reveal--visible:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 28px 72px rgba(184, 146, 58, 0.18),
+    0 28px 72px rgba(var(--color-gold-deep-rgb), 0.18),
     0 8px 24px rgba(0, 0, 0, 0.25),
-    0 0 80px rgba(212, 168, 67, 0.08),
+    0 0 80px rgba(var(--color-gold-rgb), 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -388,7 +388,7 @@
 }
 
 .spirit__cta.reveal--visible .spirit__cta-label {
-  color: rgba(14, 22, 16, 0.4);
+  color: rgba(var(--color-bg-deep-rgb), 0.4);
 }
 
 .spirit__cta-title {
@@ -417,7 +417,7 @@
 }
 
 .spirit__cta.reveal--visible .spirit__cta-sub {
-  color: rgba(14, 22, 16, 0.5);
+  color: rgba(var(--color-bg-deep-rgb), 0.5);
 }
 
 /* ---- Right: price + CTA ---- */
@@ -437,14 +437,14 @@
   align-items: flex-start;
   gap: 4px;
   padding: 16px 28px;
-  background: rgba(107, 143, 113, 0.08);
+  background: rgba(var(--color-sage-rgb), 0.08);
   border-radius: var(--card-radius);
-  border: 1px solid rgba(107, 143, 113, 0.1);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.1);
   transition: background 2s ease 1.2s;
 }
 
 .spirit__cta.reveal--visible .spirit__price {
-  background: rgba(14, 22, 16, 0.1);
+  background: rgba(var(--color-bg-deep-rgb), 0.1);
 }
 
 .spirit__price-amount {
@@ -492,7 +492,7 @@
 }
 
 .spirit__cta.reveal--visible .spirit__price-duration {
-  color: rgba(14, 22, 16, 0.4);
+  color: rgba(var(--color-bg-deep-rgb), 0.4);
 }
 
 /* ---- Button ---- */
@@ -534,7 +534,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(212, 168, 67, 0.2),
+    rgba(var(--color-gold-rgb), 0.2),
     transparent
   );
 }

@@ -67,15 +67,21 @@ for block in "${SHARED_BLOCKS[@]}"; do
       continue
     fi
 
-    # Normalisiere blog-spezifische Pfade: ../ entfernen fuer Vergleich
+    # Normalisiere blog-spezifische Pfade fuer Vergleich:
+    # 1. ../ entfernen (Blog-Dateien verweisen auf Root mit ../)
+    # 2. blog/ aus href-Attributen entfernen (Blog-Dateien verweisen relativ
+    #    auf Geschwister-Dateien ohne blog/ Prefix, Root hat blog/ Prefix)
     normalized=$(echo "$content" | sed 's|\.\./||g')
     echo "$normalized" > "$TMPDIR/cur_${block}"
 
+    # Referenz ebenfalls normalisieren: blog/ Prefix aus href-Attributen entfernen
+    sed 's|href="blog/|href="|g' "$TMPDIR/ref_${block}" > "$TMPDIR/ref_normalized_${block}"
+
     if [ -n "$reference" ]; then
-      if ! diff -q "$TMPDIR/ref_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
+      if ! diff -q "$TMPDIR/ref_normalized_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
         echo "UNTERSCHIED: ${block} — ${reference_file} vs ${relpath}"
         diff --color=auto -u \
-          --label "${reference_file}" "$TMPDIR/ref_${block}" \
+          --label "${reference_file}" "$TMPDIR/ref_normalized_${block}" \
           --label "${relpath}" "$TMPDIR/cur_${block}" || true
         echo ""
         errors=$((errors + 1))

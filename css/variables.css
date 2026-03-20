@@ -3,41 +3,49 @@
    maximum-health.de
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 :root {
   /* ---- Colors — Forest Sage + Warm Amber ---- */
-  --color-sage: #6B8F71;
-  --color-sage-deep: #4E7054;
-  --color-sage-light: #8FB396;
-  --color-sage-muted: rgba(107, 143, 113, 0.15);
-  --color-sage-glow: rgba(107, 143, 113, 0.25);
-  --color-sage-soft: rgba(107, 143, 113, 0.08);
+  /* RGB channels for rgba() usage: rgba(var(--color-sage-rgb), 0.15) */
+  --color-sage-rgb: 139, 191, 146;
+  --color-sage-mid-rgb: 157, 196, 164;
+  --color-gold-rgb: 232, 188, 74;
+  --color-gold-deep-rgb: 201, 160, 62;
+  --color-bg-deep-rgb: 12, 19, 14;
+  --color-bg-card-rgb: 30, 46, 33;
+  --color-bg-card-hover-rgb: 37, 58, 40;
 
-  --color-gold: #D4A843;
-  --color-gold-light: #E0BC5A;
-  --color-gold-deep: #B8923A;
-  --color-gold-soft: rgba(212, 168, 67, 0.12);
-  --color-gold-glow: rgba(212, 168, 67, 0.25);
+  --color-sage: #8BBF92;
+  --color-sage-light: #AEDAD5;
+  --color-sage-muted: rgba(var(--color-sage-rgb), 0.22);
+  --color-sage-soft: rgba(var(--color-sage-rgb), 0.12);
 
-  --color-bg-deep: #0E1610;
-  --color-bg-base: #151E17;
-  --color-bg-card: #1A261D;
-  --color-bg-card-hover: #1F3023;
-  --color-bg-input: #1F3023;
-  --color-bg-input-focus: #243728;
+  --color-gold: #E8BC4A;
+  --color-gold-light: #EAC55E;
+  --color-gold-deep: #C9A03E;
+  --color-gold-pale: #F5DFA0;
+  --color-gold-cream: #fffbe6;
+  --color-gold-mid: #C49B38;
+  --color-gold-shimmer-rgb: 224, 188, 90;
+  --color-gold-review: #FBBC04;
+  --color-gold-soft: rgba(var(--color-gold-rgb), 0.16);
+  --color-gold-glow: rgba(var(--color-gold-rgb), 0.35);
 
-  --color-text: rgba(255, 255, 255, 0.88);
-  --color-text-muted: rgba(255, 255, 255, 0.55);
-  --color-text-dim: rgba(255, 255, 255, 0.4);
-  --color-text-dark: #1A1A1A;
+  --color-bg-deep: #0C130E;
+  --color-bg-base: #121A14;
+  --color-bg-card: #1E2E21;
+  --color-bg-card-hover: #253A28;
+  --color-bg-input: #1E2E21;
+  --color-bg-input-focus: #2B4430;
+
+  --color-text: rgba(255, 255, 255, 0.96);
+  --color-text-muted: rgba(255, 255, 255, 0.72);
+  --color-text-dim: rgba(255, 255, 255, 0.58);
 
   --color-white: #ffffff;
   --color-black: #0A0A0A;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-light: rgba(255, 255, 255, 0.12);
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-border-light: rgba(255, 255, 255, 0.22);
 
-  --color-success: #6B9E6B;
   --color-error: #E05A4F;
 
   /* ---- Typography ---- */
@@ -58,7 +66,6 @@
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --duration: 0.4s;
   --duration-fast: 0.25s;
   --duration-slow: 0.6s;
@@ -67,8 +74,6 @@
   --transition-slow: transform var(--duration-slow) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out), background-color var(--duration-slow) var(--ease-out), border-color var(--duration-slow) var(--ease-out), color var(--duration-slow) var(--ease-out), opacity var(--duration-slow) var(--ease-out);
 
   /* ---- Shadows ---- */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2),
-               0 1px 3px rgba(0, 0, 0, 0.15);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25),
                0 2px 6px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.3),
@@ -76,6 +81,4 @@
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.4),
                0 8px 20px rgba(0, 0, 0, 0.2);
 
-  /* ---- Grain / Texture ---- */
-  --grain-opacity: 0.025;
 }

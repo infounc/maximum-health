@@ -14,7 +14,10 @@ body {
 }
 
 html {
+  font-size: 17px;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 /* ---- Edge Vignette — darkens left/right edges ---- */
@@ -50,7 +53,7 @@ h1, h2, h3, h4 {
 }
 
 h1, h2 {
-  background: radial-gradient(ellipse at 30% 40%, #ffffff 0%, rgba(255, 255, 255, 0.78) 60%, rgba(143, 179, 150, 0.6) 100%);
+  background: radial-gradient(ellipse at 30% 40%, #ffffff 0%, rgba(255, 255, 255, 0.78) 60%, rgba(var(--color-sage-mid-rgb), 0.6) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -98,7 +101,7 @@ h4 {
   width: 120px;
   max-width: 60%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(107, 143, 113, 0.4) 30%, rgba(107, 143, 113, 0.4) 70%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(var(--color-sage-rgb), 0.4) 30%, rgba(var(--color-sage-rgb), 0.4) 70%, transparent);
   margin-top: 20px;
 }
 
@@ -185,15 +188,6 @@ a:focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 3px;
   border-radius: 2px;
-}
-
-/* ==========================================================================
-   Smooth Scroll — native, resilient gegen Layout-Shifts
-   ========================================================================== */
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
 }
 
 /* ==========================================================================

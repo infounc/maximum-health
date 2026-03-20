@@ -8,13 +8,13 @@
   left: 24px;
   right: 24px;
   max-width: 560px;
-  background: rgba(14, 22, 16, 0.95);
+  background: rgba(var(--color-bg-deep-rgb), 0.95);
   color: var(--color-white);
   padding: 24px;
   z-index: 9999;
   border-radius: var(--card-radius);
   box-shadow: var(--shadow-xl);
-  border: 1px solid rgba(107, 143, 113, 0.15);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.15);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
@@ -58,10 +58,8 @@
     right: 16px;
     padding: 20px;
   }
-}
 
-/* Prevent cookie banner from blocking footer links on mobile */
-@media (max-width: 768px) {
+  /* Prevent cookie banner from blocking footer links on mobile */
   body.has-cookie-banner {
     padding-bottom: 120px;
   }

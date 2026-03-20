@@ -20,15 +20,15 @@
   transition: var(--transition);
   position: relative;
   z-index: 1;
-  border: 1px solid rgba(107, 143, 113, 0.08);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.08);
 }
 
 .coaching-card:hover {
   z-index: 3;
   transform: translateY(-10px);
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35),
-              0 0 0 1px rgba(107, 143, 113, 0.1);
-  border-color: rgba(107, 143, 113, 0.15);
+              0 0 0 1px rgba(var(--color-sage-rgb), 0.1);
+  border-color: rgba(var(--color-sage-rgb), 0.15);
 }
 
 /* Left accent bar */
@@ -55,7 +55,7 @@
 
 /* ---- Head: icon + title area ---- */
 .coaching-card__head {
-  background: linear-gradient(180deg, rgba(107, 143, 113, 0.06) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(var(--color-sage-rgb), 0.06) 0%, transparent 100%);
   padding: 36px 28px 24px;
   text-align: center;
   border-bottom: 1px solid var(--color-border);
@@ -71,8 +71,8 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 18px;
-  background: rgba(107, 143, 113, 0.06);
-  border: 1px solid rgba(107, 143, 113, 0.12);
+  background: rgba(var(--color-sage-rgb), 0.06);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.12);
   color: var(--color-sage-light);
   transition: var(--transition);
 }
@@ -87,7 +87,7 @@
   background: var(--color-sage);
   border-color: var(--color-sage);
   color: var(--color-white);
-  box-shadow: 0 0 24px rgba(107, 143, 113, 0.25);
+  box-shadow: 0 0 24px rgba(var(--color-sage-rgb), 0.25);
   transform: translateY(-2px);
 }
 
@@ -119,7 +119,7 @@
 }
 
 .coaching-card:hover .coaching-card__title {
-  background: radial-gradient(ellipse at 50% 40%, #E0BC5A 0%, var(--color-gold) 60%, var(--color-gold-deep) 100%);
+  background: radial-gradient(ellipse at 50% 40%, var(--color-gold-light) 0%, var(--color-gold) 60%, var(--color-gold-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

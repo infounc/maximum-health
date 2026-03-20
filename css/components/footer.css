@@ -41,7 +41,7 @@
   max-width: var(--container-max);
   margin: 0 auto;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(107, 143, 113, 0.15);
+  border-bottom: 1px solid rgba(var(--color-sage-rgb), 0.15);
 }
 
 .footer__brand {
@@ -85,10 +85,10 @@ img.footer__logo:hover {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: rgba(107, 143, 113, 0.1);
+  background-color: rgba(var(--color-sage-rgb), 0.1);
   color: var(--color-sage-light);
   transition: var(--transition);
-  border: 1px solid rgba(107, 143, 113, 0.2);
+  border: 1px solid rgba(var(--color-sage-rgb), 0.2);
 }
 
 .footer__social a:hover {
@@ -96,7 +96,7 @@ img.footer__logo:hover {
   border-color: var(--color-sage);
   color: var(--color-white);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(107, 143, 113, 0.3);
+  box-shadow: 0 6px 20px rgba(var(--color-sage-rgb), 0.3);
 }
 
 .footer__social a:focus-visible {
