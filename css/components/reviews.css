@@ -248,6 +248,28 @@
   }
 }
 
+/* Footer link */
+.reviews__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.reviews__all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.reviews__all-link:hover {
+  color: var(--color-amber);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .reviews__track {
