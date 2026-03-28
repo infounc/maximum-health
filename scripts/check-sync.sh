@@ -42,6 +42,19 @@ errors=0
 # Normalisierungsfunktionen: Alle Pfade auf Root-Äquivalent bringen
 # ----------------------------------------------------------------
 
+# 404.html → Root (absolute Pfade zu relativen Root-Pfaden normalisieren):
+#   "/"          → "index.html"
+#   "/#section"  → "index.html#section"
+#   "/css/"      → "css/"
+#   "/blog/"     → "blog/"
+normalize_404_to_root() {
+  sed \
+    -e 's|href="/"|href="index.html"|g' \
+    -e 's|href="/#|href="index.html#|g' \
+    -e 's|href="/|href="|g' \
+    -e 's|src="/|src="|g'
+}
+
 # Tiefe 1 → Root:
 #   "../"        → "index.html"  (oder "../index.html" als Sonderfallvariante)
 #   "../index.html" → "index.html"
@@ -80,6 +93,8 @@ for block in "${SHARED_BLOCKS[@]}"; do
   reference_file=""
 
   # --- Tiefe 0 (Root): erste Datei als Referenz, alle anderen direkt vergleichen ---
+  # 404.html verwendet absolute Pfade (weil sie von beliebigen URLs serviert wird),
+  # daher muss sie vor dem Vergleich normalisiert werden.
   for file in "${DEPTH0_FILES[@]}"; do
     basename="$(basename "$file")"
     content=$(sed -n "/${start_tag}/,/${end_tag}/p" "$file" | sed '1d;$d')
@@ -88,6 +103,11 @@ for block in "${SHARED_BLOCKS[@]}"; do
       echo "FEHLT: ${block} in ${basename}"
       errors=$((errors + 1))
       continue
+    fi
+
+    # 404.html: absolute Pfade auf Root-Niveau normalisieren
+    if [ "$basename" = "404.html" ]; then
+      content=$(echo "$content" | normalize_404_to_root)
     fi
 
     if [ -z "$reference" ]; then
