@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # check-sync.sh — Vergleicht SHARED-Blöcke über alle HTML-Seiten
 # Verwendung: bash scripts/check-sync.sh
+#
+# Unterstützte Verzeichnisstruktur (Clean URLs):
+#   Tiefe 0 (Root):  index.html, 404.html
+#   Tiefe 1:         blog/index.html, impressum/index.html, etc.
+#   Tiefe 2:         blog/slug/index.html
 
 set -euo pipefail
 
@@ -9,12 +14,63 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
-ROOT_HTML_FILES=("$PROJECT_DIR"/*.html)
-BLOG_HTML_FILES=("$PROJECT_DIR"/blog/*.html)
+# Sammle alle index.html-Dateien nach Tiefe
+DEPTH0_FILES=("$PROJECT_DIR"/*.html)
+DEPTH1_FILES=()
+DEPTH2_FILES=()
+
+# Tiefe 1: direkte Unterverzeichnisse mit index.html
+for dir in "$PROJECT_DIR"/*/; do
+  if [ -f "${dir}index.html" ]; then
+    DEPTH1_FILES+=("${dir}index.html")
+  fi
+done
+
+# Tiefe 2: blog/slug/index.html
+for dir in "$PROJECT_DIR"/blog/*/; do
+  if [ -f "${dir}index.html" ]; then
+    DEPTH2_FILES+=("${dir}index.html")
+  fi
+done
+
 SHARED_BLOCKS=("NAV" "FOOTER" "COOKIE" "HEAD-CSS")
 
-total_files=$(( ${#ROOT_HTML_FILES[@]} + ${#BLOG_HTML_FILES[@]} ))
+total_files=$(( ${#DEPTH0_FILES[@]} + ${#DEPTH1_FILES[@]} + ${#DEPTH2_FILES[@]} ))
 errors=0
+
+# ----------------------------------------------------------------
+# Normalisierungsfunktionen: Alle Pfade auf Root-Äquivalent bringen
+# ----------------------------------------------------------------
+
+# Tiefe 1 → Root:
+#   "../"        → "index.html"  (oder "../index.html" als Sonderfallvariante)
+#   "../index.html" → "index.html"
+#   "../X"       → "X"           (css/, js/, images/, etc.)
+#   "../blog/"   → "blog/"
+#   "../sparpaket/" etc. → "sparpaket/" etc.
+normalize_d1_to_root() {
+  sed \
+    -e 's|href="\.\./"|href="index.html"|g' \
+    -e 's|href="\.\./index\.html|href="index.html|g' \
+    -e 's|href="\.\./|href="|g' \
+    -e 's|src="\.\./|src="|g'
+}
+
+# Tiefe 2 → Root:
+#   "../../"          → "index.html"
+#   "../../index.html"→ "index.html"
+#   "../../X"         → "X"
+#   "../schroepf/"    → "blog/schroepf/"  (Artikel-Geschwister-Links)
+#   "../Y/"           → "blog/Y/"
+normalize_d2_to_root() {
+  sed \
+    -e 's|href="\.\./\.\./"|href="index.html"|g' \
+    -e 's|href="\.\./\.\./index\.html|href="index.html|g' \
+    -e 's|href="\.\./\.\./|href="|g' \
+    -e 's|src="\.\./\.\./|src="|g' \
+    -e 's|href="\.\./|href="blog/|g' \
+    -e 's|src="\.\./|src="blog/|g'
+}
 
 for block in "${SHARED_BLOCKS[@]}"; do
   start_tag="<!-- SHARED:${block}:START -->"
@@ -23,10 +79,9 @@ for block in "${SHARED_BLOCKS[@]}"; do
   reference=""
   reference_file=""
 
-  for file in "${ROOT_HTML_FILES[@]}"; do
+  # --- Tiefe 0 (Root): erste Datei als Referenz, alle anderen direkt vergleichen ---
+  for file in "${DEPTH0_FILES[@]}"; do
     basename="$(basename "$file")"
-
-    # Block extrahieren (zwischen START und END, exklusive der Marker)
     content=$(sed -n "/${start_tag}/,/${end_tag}/p" "$file" | sed '1d;$d')
 
     if [ -z "$content" ]; then
@@ -35,7 +90,6 @@ for block in "${SHARED_BLOCKS[@]}"; do
       continue
     fi
 
-    # Erste Datei als Referenz nutzen
     if [ -z "$reference" ]; then
       reference="$content"
       reference_file="$basename"
@@ -43,7 +97,6 @@ for block in "${SHARED_BLOCKS[@]}"; do
       continue
     fi
 
-    # Vergleichen
     echo "$content" > "$TMPDIR/cur_${block}"
     if ! diff -q "$TMPDIR/ref_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
       echo "UNTERSCHIED: ${block} — ${reference_file} vs ${basename}"
@@ -55,10 +108,15 @@ for block in "${SHARED_BLOCKS[@]}"; do
     fi
   done
 
-  # Blog-Dateien pruefen: Pfad-Praefixe ../  werden fuer den Vergleich normalisiert
-  for file in "${BLOG_HTML_FILES[@]}"; do
-    relpath="blog/$(basename "$file")"
+  if [ -z "$reference" ]; then
+    echo "FEHLER: Keine Referenz für ${block} gefunden."
+    errors=$((errors + 1))
+    continue
+  fi
 
+  # --- Tiefe 1: normalisiert auf Root-Niveau, dann gegen Referenz ---
+  for file in "${DEPTH1_FILES[@]}"; do
+    relpath="${file#$PROJECT_DIR/}"
     content=$(sed -n "/${start_tag}/,/${end_tag}/p" "$file" | sed '1d;$d')
 
     if [ -z "$content" ]; then
@@ -67,31 +125,44 @@ for block in "${SHARED_BLOCKS[@]}"; do
       continue
     fi
 
-    # Normalisiere blog-spezifische Pfade fuer Vergleich:
-    # 1. ../ entfernen (Blog-Dateien verweisen auf Root mit ../)
-    # 2. blog/ aus href-Attributen entfernen (Blog-Dateien verweisen relativ
-    #    auf Geschwister-Dateien ohne blog/ Prefix, Root hat blog/ Prefix)
-    normalized=$(echo "$content" | sed 's|\.\./||g')
-    echo "$normalized" > "$TMPDIR/cur_${block}"
+    echo "$content" | normalize_d1_to_root > "$TMPDIR/cur_${block}"
 
-    # Referenz ebenfalls normalisieren: blog/ Prefix aus href-Attributen entfernen
-    sed 's|href="blog/|href="|g' "$TMPDIR/ref_${block}" > "$TMPDIR/ref_normalized_${block}"
+    if ! diff -q "$TMPDIR/ref_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
+      echo "UNTERSCHIED: ${block} — ${reference_file} vs ${relpath}"
+      diff --color=auto -u \
+        --label "${reference_file}" "$TMPDIR/ref_${block}" \
+        --label "${relpath}" "$TMPDIR/cur_${block}" || true
+      echo ""
+      errors=$((errors + 1))
+    fi
+  done
 
-    if [ -n "$reference" ]; then
-      if ! diff -q "$TMPDIR/ref_normalized_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
-        echo "UNTERSCHIED: ${block} — ${reference_file} vs ${relpath}"
-        diff --color=auto -u \
-          --label "${reference_file}" "$TMPDIR/ref_normalized_${block}" \
-          --label "${relpath}" "$TMPDIR/cur_${block}" || true
-        echo ""
-        errors=$((errors + 1))
-      fi
+  # --- Tiefe 2: normalisiert auf Root-Niveau, dann gegen Referenz ---
+  for file in "${DEPTH2_FILES[@]}"; do
+    relpath="${file#$PROJECT_DIR/}"
+    content=$(sed -n "/${start_tag}/,/${end_tag}/p" "$file" | sed '1d;$d')
+
+    if [ -z "$content" ]; then
+      echo "FEHLT: ${block} in ${relpath}"
+      errors=$((errors + 1))
+      continue
+    fi
+
+    echo "$content" | normalize_d2_to_root > "$TMPDIR/cur_${block}"
+
+    if ! diff -q "$TMPDIR/ref_${block}" "$TMPDIR/cur_${block}" > /dev/null 2>&1; then
+      echo "UNTERSCHIED: ${block} — ${reference_file} vs ${relpath}"
+      diff --color=auto -u \
+        --label "${reference_file}" "$TMPDIR/ref_${block}" \
+        --label "${relpath}" "$TMPDIR/cur_${block}" || true
+      echo ""
+      errors=$((errors + 1))
     fi
   done
 done
 
 if [ "$errors" -eq 0 ]; then
-  echo "OK: Alle SHARED-Blöcke sind synchron über ${total_files} Seiten (${#ROOT_HTML_FILES[@]} Root + ${#BLOG_HTML_FILES[@]} Blog)."
+  echo "OK: Alle SHARED-Blöcke sind synchron über ${total_files} Seiten (${#DEPTH0_FILES[@]} Root + ${#DEPTH1_FILES[@]} Tiefe-1 + ${#DEPTH2_FILES[@]} Tiefe-2)."
 else
   echo ""
   echo "WARNUNG: ${errors} Abweichung(en) gefunden."
