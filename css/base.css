@@ -202,6 +202,14 @@ a:focus-visible {
   will-change: opacity, transform;
 }
 
+/* Entrance-Transition erzwingen — verhindert, dass Component-Transitions
+   (z.B. Cards mit var(--transition) = 0.4s) die langsame Reveal-Animation
+   überschreiben. Nach dem Reveal greifen Component-Transitions für Hover. */
+.reveal:not(.reveal--visible) {
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
 .reveal--visible {
   opacity: 1;
   transform: translateY(0);
