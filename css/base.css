@@ -20,26 +20,6 @@ html {
   scroll-padding-top: 80px;
 }
 
-/* ---- Edge Vignette — darkens left/right edges ---- */
-/* Mehr Stops um Gradient Banding zu vermeiden */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg,
-      rgba(0,0,0,0.18) 0%,
-      rgba(0,0,0,0.10) 4%,
-      rgba(0,0,0,0.04) 8%,
-      transparent 14%,
-      transparent 86%,
-      rgba(0,0,0,0.04) 92%,
-      rgba(0,0,0,0.10) 96%,
-      rgba(0,0,0,0.18) 100%
-    );
-}
 
 /* ---- Noise Texture Overlay — bricht Gradient Banding auf ---- */
 body::before {
