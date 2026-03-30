@@ -4,27 +4,28 @@
 
 /* ---- Section-level atmosphere ---- */
 #spirit {
-  overflow: clip;
-  overflow-clip-margin: 20px;
+  /* Horizontal clippen damit der Glow keinen Scrollbar erzeugt,
+     vertikal visible damit er in die Section darüber ragt */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
-/* Large ambient glow behind the entire section.
-   Mehrere versetzte Gradienten statt einem großen — verhindert Banding durch natürliches Dithering */
+/* Large ambient glow — ragt bewusst in die Section darüber */
 #spirit::after {
   content: '';
   position: absolute;
-  top: -10%;
+  top: -35%;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 900px;
+  width: 1000px;
+  height: 1000px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 48% 38%, rgba(var(--color-gold-rgb), 0.04) 0%, transparent 55%),
-    radial-gradient(circle at 54% 44%, rgba(var(--color-gold-rgb), 0.03) 0%, transparent 60%),
+    radial-gradient(circle at 48% 38%, rgba(var(--color-gold-rgb), 0.05) 0%, transparent 55%),
+    radial-gradient(circle at 54% 44%, rgba(var(--color-gold-rgb), 0.04) 0%, transparent 60%),
     radial-gradient(circle at 50% 40%, rgba(var(--color-sage-rgb), 0.03) 15%, transparent 65%),
     radial-gradient(circle at 46% 43%, rgba(var(--color-sage-rgb), 0.02) 0%, transparent 70%);
-  filter: blur(80px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
   will-change: transform;
