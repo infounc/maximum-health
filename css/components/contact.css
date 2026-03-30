@@ -58,6 +58,7 @@
     transparent 70%
   );
   z-index: 1;
+  filter: blur(30px);
   transition: opacity 0.6s var(--ease-out),
               transform 0.6s var(--ease-out);
   pointer-events: none;
@@ -212,6 +213,7 @@ a.contact__card-value:hover {
     transparent 70%
   );
   z-index: 0;
+  filter: blur(30px);
   pointer-events: none;
 }
 
