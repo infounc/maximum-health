@@ -233,6 +233,18 @@ a:focus-visible {
 .reveal--delay-5.reveal--visible { animation-delay: 0.75s; }
 .reveal--delay-6.reveal--visible { animation-delay: 0.9s; }
 
+/* Mobile: kürzere Delays und kleinere Distanz — Elemente erscheinen früher */
+@media (max-width: 768px) {
+  :root { --reveal-distance: 24px; }
+
+  .reveal--delay-1.reveal--visible { animation-delay: 0.08s; }
+  .reveal--delay-2.reveal--visible { animation-delay: 0.15s; }
+  .reveal--delay-3.reveal--visible { animation-delay: 0.22s; }
+  .reveal--delay-4.reveal--visible { animation-delay: 0.3s; }
+  .reveal--delay-5.reveal--visible { animation-delay: 0.38s; }
+  .reveal--delay-6.reveal--visible { animation-delay: 0.45s; }
+}
+
 /* Reduced motion: sofort sichtbar, keine Animation */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
