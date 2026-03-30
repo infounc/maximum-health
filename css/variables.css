@@ -66,9 +66,9 @@
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --reveal-duration: 0.65s;
-  --reveal-easing: cubic-bezier(0.16, 1, 0.3, 1);
-  --reveal-distance: 20px;
+  --reveal-duration: 0.9s;
+  --reveal-easing: ease-out;
+  --reveal-distance: 10px;
   --duration: 0.4s;
   --duration-fast: 0.25s;
   --duration-slow: 0.6s;

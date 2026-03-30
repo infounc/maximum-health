@@ -213,16 +213,20 @@ a:focus-visible {
 .reveal--from-left.reveal--visible  { animation-name: revealFadeLeft; }
 .reveal--from-right.reveal--visible { animation-name: revealFadeRight; }
 
+/* Soft fade-in: Opacity ist dominant, minimale Bewegung nur als Tiefenhinweis */
 @keyframes revealFadeUp {
   from { opacity: 0; transform: translateY(var(--reveal-distance)); }
+  50%  { opacity: 0.6; }
   to   { opacity: 1; transform: none; }
 }
 @keyframes revealFadeLeft {
   from { opacity: 0; transform: translateX(calc(-1 * var(--reveal-distance))); }
+  50%  { opacity: 0.6; }
   to   { opacity: 1; transform: none; }
 }
 @keyframes revealFadeRight {
   from { opacity: 0; transform: translateX(var(--reveal-distance)); }
+  50%  { opacity: 0.6; }
   to   { opacity: 1; transform: none; }
 }
 
