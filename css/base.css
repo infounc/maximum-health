@@ -226,23 +226,21 @@ a:focus-visible {
   to   { opacity: 1; transform: none; }
 }
 
-.reveal--delay-1.reveal--visible { animation-delay: 0.15s; }
-.reveal--delay-2.reveal--visible { animation-delay: 0.3s; }
-.reveal--delay-3.reveal--visible { animation-delay: 0.45s; }
-.reveal--delay-4.reveal--visible { animation-delay: 0.6s; }
-.reveal--delay-5.reveal--visible { animation-delay: 0.75s; }
-.reveal--delay-6.reveal--visible { animation-delay: 0.9s; }
+.reveal--delay-1.reveal--visible { animation-delay: 0.08s; }
+.reveal--delay-2.reveal--visible { animation-delay: 0.16s; }
+.reveal--delay-3.reveal--visible { animation-delay: 0.24s; }
+.reveal--delay-4.reveal--visible { animation-delay: 0.32s; }
+.reveal--delay-5.reveal--visible { animation-delay: 0.4s; }
+.reveal--delay-6.reveal--visible { animation-delay: 0.48s; }
 
-/* Mobile: kürzere Delays und kleinere Distanz — Elemente erscheinen früher */
+/* Mobile: kein Stagger, kein Delay — Elemente erscheinen sofort beim Eintreten */
 @media (max-width: 768px) {
-  :root { --reveal-distance: 24px; }
-
-  .reveal--delay-1.reveal--visible { animation-delay: 0.08s; }
-  .reveal--delay-2.reveal--visible { animation-delay: 0.15s; }
-  .reveal--delay-3.reveal--visible { animation-delay: 0.22s; }
-  .reveal--delay-4.reveal--visible { animation-delay: 0.3s; }
-  .reveal--delay-5.reveal--visible { animation-delay: 0.38s; }
-  .reveal--delay-6.reveal--visible { animation-delay: 0.45s; }
+  .reveal--delay-1.reveal--visible,
+  .reveal--delay-2.reveal--visible,
+  .reveal--delay-3.reveal--visible,
+  .reveal--delay-4.reveal--visible,
+  .reveal--delay-5.reveal--visible,
+  .reveal--delay-6.reveal--visible { animation-delay: 0s; }
 }
 
 /* Reduced motion: sofort sichtbar, keine Animation */

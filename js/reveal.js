@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     },
     {
-      threshold: isMobile ? 0.05 : 0.15,
-      rootMargin: isMobile ? '0px 0px -40px 0px' : '0px 0px -120px 0px'
+      // Sofort beim ersten Pixel triggern — kein künstliches Verzögern.
+      // Desktop: leichter negativer Margin verhindert Trigger bei ganz
+      // knappem Übergang (z.B. schnelles Scrollen durch Section-Trennlinien).
+      threshold: 0,
+      rootMargin: isMobile ? '0px' : '0px 0px -60px 0px'
     }
   );
 
