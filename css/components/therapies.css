@@ -3,32 +3,31 @@
    ========================================================================== */
 
 /* ---- Custom reveal directions — same timing as base .reveal ---- */
-.therapy-card[data-reveal-from="left"] {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+.therapy-card[data-reveal-from="left"]  { opacity: 0; transform: translateX(-40px); }
+.therapy-card[data-reveal-from="right"] { opacity: 0; transform: translateX(40px); }
+.therapy-card[data-reveal-from="bottom"]{ opacity: 0; transform: translateY(40px); }
 
-.therapy-card[data-reveal-from="right"] {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+/* Override animation-name; duration/easing/delay inherited from .reveal--visible */
+.therapy-card[data-reveal-from="left"].reveal--visible  { animation-name: revealFadeLeft; }
+.therapy-card[data-reveal-from="right"].reveal--visible { animation-name: revealFadeRight; }
 
-.therapy-card[data-reveal-from="bottom"] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+/* bottom uses the default revealFadeUp — no override needed */
 
 .therapy-card[data-reveal-from="left"].reveal--visible,
 .therapy-card[data-reveal-from="right"].reveal--visible,
 .therapy-card[data-reveal-from="bottom"].reveal--visible {
   opacity: 1;
-  transform: translateX(0) translateY(0);
+  transform: none;
+}
+
+@keyframes revealFadeLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes revealFadeRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* ---- Bento Grid Layout ---- */
@@ -417,7 +416,7 @@
     margin-top: 0;
   }
 
-  /* Simplify to vertical reveals on mobile */
+  /* Simplify to vertical reveals on mobile — use default revealFadeUp animation */
   .therapy-card[data-reveal-from="left"],
   .therapy-card[data-reveal-from="right"] {
     transform: translateY(40px);
@@ -425,7 +424,7 @@
 
   .therapy-card[data-reveal-from="left"].reveal--visible,
   .therapy-card[data-reveal-from="right"].reveal--visible {
-    transform: translateY(0);
+    animation-name: revealFadeUp;
   }
 }
 
@@ -436,7 +435,6 @@
   .therapy-card[data-reveal-from="bottom"] {
     opacity: 1;
     transform: none;
-    transition: none;
   }
 }
 
