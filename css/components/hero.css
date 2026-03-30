@@ -73,14 +73,9 @@
     radial-gradient(circle at 50% 52%, rgba(var(--color-sage-rgb), 0.03) 0%, transparent 55%);
   z-index: 0;
   filter: blur(60px);
-  animation: heroGlow 8s ease-in-out infinite alternate;
-  will-change: transform, opacity;
+  will-change: transform;
 }
 
-@keyframes heroGlow {
-  0% { opacity: 0.6; transform: translate(0, 0) scale(1); }
-  100% { opacity: 1; transform: translate(20px, -10px) scale(1.1); }
-}
 
 /* ---- Parallax Depth Layers ---- */
 .hero__depth-layer {
@@ -111,7 +106,6 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  animation: floatOrb 12s ease-in-out infinite alternate;
 }
 
 .hero__depth-layer--mid::before {
@@ -138,12 +132,6 @@
   animation-duration: 16s;
 }
 
-@keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.08); }
-  66% { transform: translate(-15px, 15px) scale(0.95); }
-  100% { transform: translate(20px, -30px) scale(1.05); }
-}
 
 /* Near layer — subtle foreground depth */
 .hero__depth-layer--near {

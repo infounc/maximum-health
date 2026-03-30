@@ -27,14 +27,9 @@
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity;
-  animation: spiritAmbient 12s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-@keyframes spiritAmbient {
-  0%   { opacity: 0.5; transform: translateX(-50%) scale(1); }
-  100% { opacity: 1;   transform: translateX(-50%) scale(1.15) translateY(40px); }
-}
 
 /* ---- Hero: Large centered statement ---- */
 .spirit__hero {
