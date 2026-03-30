@@ -2,34 +2,6 @@
    Therapies Section — Bento Grid with Glassmorphism + Reveal Animations
    ========================================================================== */
 
-/* ---- Custom reveal directions — same timing as base .reveal ---- */
-.therapy-card[data-reveal-from="left"]  { opacity: 0; transform: translateX(-40px); }
-.therapy-card[data-reveal-from="right"] { opacity: 0; transform: translateX(40px); }
-.therapy-card[data-reveal-from="bottom"]{ opacity: 0; transform: translateY(40px); }
-
-/* Override animation-name; duration/easing/delay inherited from .reveal--visible */
-.therapy-card[data-reveal-from="left"].reveal--visible  { animation-name: revealFadeLeft; }
-.therapy-card[data-reveal-from="right"].reveal--visible { animation-name: revealFadeRight; }
-
-/* bottom uses the default revealFadeUp — no override needed */
-
-.therapy-card[data-reveal-from="left"].reveal--visible,
-.therapy-card[data-reveal-from="right"].reveal--visible,
-.therapy-card[data-reveal-from="bottom"].reveal--visible {
-  opacity: 1;
-  transform: none;
-}
-
-@keyframes revealFadeLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to   { opacity: 1; transform: none; }
-}
-
-@keyframes revealFadeRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: none; }
-}
-
 /* ---- Bento Grid Layout ---- */
 .therapies__grid {
   display: grid;
@@ -416,26 +388,6 @@
     margin-top: 0;
   }
 
-  /* Simplify to vertical reveals on mobile — use default revealFadeUp animation */
-  .therapy-card[data-reveal-from="left"],
-  .therapy-card[data-reveal-from="right"] {
-    transform: translateY(40px);
-  }
-
-  .therapy-card[data-reveal-from="left"].reveal--visible,
-  .therapy-card[data-reveal-from="right"].reveal--visible {
-    animation-name: revealFadeUp;
-  }
-}
-
-/* Reduced motion: sofort sichtbar */
-@media (prefers-reduced-motion: reduce) {
-  .therapy-card[data-reveal-from="left"],
-  .therapy-card[data-reveal-from="right"],
-  .therapy-card[data-reveal-from="bottom"] {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @media (max-width: 480px) {

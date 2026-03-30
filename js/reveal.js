@@ -27,5 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   );
 
-  elements.forEach((el) => observer.observe(el));
+  elements.forEach((el) => {
+    const dir = el.dataset.revealFrom;
+    if (dir === 'left')  el.classList.add('reveal--from-left');
+    if (dir === 'right') el.classList.add('reveal--from-right');
+    observer.observe(el);
+  });
 });

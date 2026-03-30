@@ -196,7 +196,7 @@ a:focus-visible {
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(var(--reveal-distance));
   will-change: opacity, transform;
 }
 
@@ -206,11 +206,23 @@ a:focus-visible {
 .reveal--visible {
   opacity: 1;
   transform: none;
-  animation: revealFadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) backwards;
+  animation: revealFadeUp var(--reveal-duration) var(--reveal-easing) backwards;
 }
 
+/* Richtungs-Varianten — gesetzt von reveal.js via data-reveal-from */
+.reveal--from-left.reveal--visible  { animation-name: revealFadeLeft; }
+.reveal--from-right.reveal--visible { animation-name: revealFadeRight; }
+
 @keyframes revealFadeUp {
-  from { opacity: 0; transform: translateY(40px); }
+  from { opacity: 0; transform: translateY(var(--reveal-distance)); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes revealFadeLeft {
+  from { opacity: 0; transform: translateX(calc(-1 * var(--reveal-distance))); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes revealFadeRight {
+  from { opacity: 0; transform: translateX(var(--reveal-distance)); }
   to   { opacity: 1; transform: none; }
 }
 
