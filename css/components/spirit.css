@@ -8,7 +8,8 @@
   overflow-clip-margin: 20px;
 }
 
-/* Large ambient glow behind the entire section */
+/* Large ambient glow behind the entire section.
+   Mehrere versetzte Gradienten statt einem großen — verhindert Banding durch natürliches Dithering */
 #spirit::after {
   content: '';
   position: absolute;
@@ -18,10 +19,15 @@
   width: 900px;
   height: 900px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--color-gold-rgb), 0.06) 0%, rgba(var(--color-sage-rgb), 0.04) 40%, transparent 70%);
+  background:
+    radial-gradient(circle at 48% 38%, rgba(var(--color-gold-rgb), 0.04) 0%, transparent 55%),
+    radial-gradient(circle at 54% 44%, rgba(var(--color-gold-rgb), 0.03) 0%, transparent 60%),
+    radial-gradient(circle at 50% 40%, rgba(var(--color-sage-rgb), 0.03) 15%, transparent 65%),
+    radial-gradient(circle at 46% 43%, rgba(var(--color-sage-rgb), 0.02) 0%, transparent 70%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
+  will-change: transform, opacity;
   animation: spiritAmbient 12s ease-in-out infinite alternate;
 }
 
