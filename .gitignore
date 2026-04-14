@@ -1,6 +1,26 @@
+# Claude / Tooling
 .claude/
 tmp/
 CLAUDE.md
+
+# Interne Projekt-Docs (nicht öffentlich)
 TASKS.md
+TODO.md
+TODO-MAX-GOOGLE.md
 keyword-recherche.md
 blog-export.pdf
+
+# Backups
+*.bak
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Logs / Deps
+*.log
+node_modules/
