@@ -256,6 +256,24 @@ body.is-scrolling * {
   pointer-events: none !important;
 }
 
+/* Touch-Devices (Mobile/Tablet): Hover-Lifts auf Cards deaktivieren.
+   Touchscreens triggern :hover beim Antippen/Scrollen sticky, was
+   beim Scrollen zu sichtbarem Hoch-/Runter-Zucken der Cards führt. */
+@media (hover: none) {
+  .therapy-card:hover,
+  .coaching-card:hover,
+  .pricing-card:hover,
+  .pricing-card--featured:hover,
+  .blog-card:hover,
+  .cta-banner:hover,
+  .contact__card:hover,
+  .review-card:hover,
+  .spirit__feature:hover,
+  .spirit__cta.reveal--visible:hover {
+    transform: none !important;
+  }
+}
+
 /* ==========================================================================
    Responsive Typography
    ========================================================================== */
