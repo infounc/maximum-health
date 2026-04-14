@@ -249,6 +249,13 @@ a:focus-visible {
   }
 }
 
+/* Während des Scrollens Hover-Events deaktivieren: verhindert, dass Cards
+   zucken, wenn der Cursor beim Scrollen über sie hinwegfährt und dadurch
+   kurzzeitig :hover-Transforms (translateY) ausgelöst werden. */
+body.is-scrolling * {
+  pointer-events: none !important;
+}
+
 /* ==========================================================================
    Responsive Typography
    ========================================================================== */

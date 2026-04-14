@@ -3,6 +3,17 @@
  * Sticky Navbar mit Scroll-Effekt und Mobile Hamburger Menu.
  */
 document.addEventListener('DOMContentLoaded', () => {
+  // Verhindert Hover-Lift-Zucken von Cards, wenn der Cursor beim Scrollen
+  // über sie hinwegstreicht. Setzt während des Scrollens pointer-events: none.
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    document.body.classList.add('is-scrolling');
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      document.body.classList.remove('is-scrolling');
+    }, 120);
+  }, { passive: true });
+
   const navbar = document.querySelector('.navbar');
   if (!navbar) return;
 
