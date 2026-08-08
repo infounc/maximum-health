@@ -358,3 +358,72 @@ body.is-scrolling * {
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   KI-Hinweis — Kennzeichnung KI-generierter Bilder (Art. 50 EU AI Act)
+   ========================================================================== */
+
+.ai-note {
+  position: absolute;
+  z-index: 5;
+  padding: 3px 10px;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(var(--color-bg-deep-rgb), 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Blog-Karten: oben rechts ueber dem Vorschaubild */
+.blog-card .ai-note {
+  top: 10px;
+  right: 10px;
+}
+
+/* Artikel-Titelbild: unten rechts im Bild (Wrapper hat 24px Seiten-Padding) */
+.article-hero-image {
+  position: relative;
+}
+
+.article-hero-image .ai-note {
+  right: 38px;
+  bottom: 14px;
+}
+
+/* Startseiten-Hero: unten rechts, oberhalb der Vignette */
+.hero > .ai-note {
+  right: 18px;
+  bottom: 18px;
+}
+
+/* Profilfoto */
+.profile__photo .ai-note {
+  right: 14px;
+  bottom: 14px;
+}
+
+/* Footer-Hinweis */
+.footer__ai-note {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--color-text-dim);
+  opacity: 0.8;
+  letter-spacing: 0.01em;
+}
+
+@media print {
+  .ai-note {
+    background: none !important;
+    border-color: #999 !important;
+    color: #444 !important;
+  }
+}
