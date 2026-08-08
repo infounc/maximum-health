@@ -363,24 +363,39 @@ body.is-scrolling * {
    KI-Hinweis — Kennzeichnung KI-generierter Bilder (Art. 50 EU AI Act)
    ========================================================================== */
 
+/* Bewusst OHNE backdrop-filter: die Badges sitzen u. a. in .blog-card, das
+   selbst backdrop-filter nutzt. Verschachtelte backdrop-filter rendern
+   browserabhaengig fehlerhaft (ausgewaschene bzw. graue Flaechen). Der
+   Hintergrund ist daher blickdicht genug, um allein zu tragen. */
 .ai-note {
   position: absolute;
-  z-index: 5;
+  z-index: 6;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
   padding: 3px 10px;
   font-family: var(--font-body);
   font-size: 0.66rem;
-  font-weight: 300;
-  letter-spacing: 0.06em;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.05em;
   line-height: 1.5;
+  text-align: center;
+  text-transform: none;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
   white-space: nowrap;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(var(--color-bg-deep-rgb), 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: baseline;
+  color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(var(--color-bg-deep-rgb), 0.68);
+  background-image: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: none;
+  opacity: 1;
   pointer-events: none;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Blog-Karten: oben rechts ueber dem Vorschaubild */
@@ -389,7 +404,8 @@ body.is-scrolling * {
   right: 10px;
 }
 
-/* Artikel-Titelbild: unten rechts im Bild (Wrapper hat 24px Seiten-Padding) */
+/* Artikel-Titelbild: unten rechts im Bild.
+   Der Wrapper hat 24px Seiten-Padding, der Offset rechnet es heraus. */
 .article-hero-image {
   position: relative;
 }
@@ -399,16 +415,33 @@ body.is-scrolling * {
   bottom: 14px;
 }
 
-/* Startseiten-Hero: unten rechts, oberhalb der Vignette */
+/* Startseiten-Hero: unten rechts, ueber Vignette (z-index 4) und Content (5) */
 .hero > .ai-note {
   right: 18px;
   bottom: 18px;
 }
 
-/* Profilfoto */
-.profile__photo .ai-note {
-  right: 14px;
-  bottom: 14px;
+@media (max-width: 480px) {
+  .ai-note {
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .blog-card .ai-note {
+    top: 8px;
+    right: 8px;
+  }
+
+  .article-hero-image .ai-note {
+    right: 32px;
+    bottom: 10px;
+  }
+
+  .hero > .ai-note {
+    right: 12px;
+    bottom: 12px;
+  }
 }
 
 /* Footer-Hinweis */
