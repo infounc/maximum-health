@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Wellpass Section — Exklusives Massage-Angebot für Wellpass-Mitglieder
+   ========================================================================== */
+
+.wellpass__label {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 28px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  padding: 8px 28px;
+  border: 1px solid rgba(var(--color-gold-rgb), 0.2);
+  border-radius: 100px;
+}
+
+/* ---- Card ---- */
+.wellpass__card {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  border-radius: var(--card-radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(var(--color-gold-rgb), 0.16);
+  background:
+    radial-gradient(ellipse 60% 90% at 100% 0%, rgba(var(--color-gold-rgb), 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 0% 100%, rgba(var(--color-sage-rgb), 0.08) 0%, transparent 60%),
+    linear-gradient(
+      135deg,
+      rgba(var(--color-bg-card-rgb), 0.9) 0%,
+      rgba(var(--color-bg-card-hover-rgb), 0.7) 50%,
+      rgba(var(--color-bg-card-rgb), 0.9) 100%
+    );
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color var(--duration) var(--ease-out),
+              box-shadow var(--duration) var(--ease-out);
+}
+
+/* Gold accent line along the top edge */
+.wellpass__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--color-gold-rgb), 0.6), transparent);
+}
+
+.wellpass__card:hover {
+  border-color: rgba(var(--color-gold-rgb), 0.28);
+  box-shadow:
+    0 16px 56px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(var(--color-gold-rgb), 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.wellpass__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+  padding: 56px 60px;
+}
+
+/* ---- Left: content ---- */
+.wellpass__content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.wellpass__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 14px;
+}
+
+.wellpass__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.wellpass__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.wellpass__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wellpass__benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.wellpass__benefits svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-gold);
+}
+
+/* ---- Right: badge + CTA ---- */
+.wellpass__action {
+  flex-shrink: 0;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.wellpass__badge {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 28px 24px;
+  border-radius: var(--card-radius);
+  background: rgba(var(--color-bg-deep-rgb), 0.35);
+  border: 1px solid rgba(var(--color-gold-rgb), 0.14);
+}
+
+.wellpass__badge-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-gold-rgb), 0.18),
+    rgba(var(--color-gold-rgb), 0.05)
+  );
+  border: 1px solid rgba(var(--color-gold-rgb), 0.25);
+}
+
+.wellpass__badge-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.wellpass__badge-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.wellpass__badge-sub {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+.wellpass__btn {
+  width: 100%;
+}
+
+.wellpass__note {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .wellpass__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+    padding: 44px 32px;
+  }
+
+  .wellpass__content {
+    max-width: none;
+  }
+
+  .wellpass__title br {
+    display: none;
+  }
+
+  .wellpass__action {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .wellpass__badge {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 2px;
+    padding: 18px 20px;
+    text-align: left;
+  }
+
+  .wellpass__badge-icon {
+    grid-row: 1 / span 2;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0;
+  }
+
+  .wellpass__badge-name {
+    align-self: end;
+    font-size: 1.35rem;
+  }
+
+  .wellpass__badge-sub {
+    align-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .wellpass__label {
+    padding: 8px 20px;
+    letter-spacing: 0.16em;
+  }
+
+  .wellpass__inner {
+    padding: 36px 22px;
+    gap: 32px;
+  }
+
+  .wellpass__btn {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
